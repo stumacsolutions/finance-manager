@@ -1,0 +1,14 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title th:text="${status} + ' - ' + ${error}">4xx</title>
+  <meta charset="UTF-8"/>
+  <link rel="stylesheet" th:href="@{/css/error.css}"/>
+</head>
+<body>
+<div class="wrapper">
+  <div class="big">
+    <h1 th:text="${error}">4xx</h1>
+  </div>
+</div>
+</body>
+</html>

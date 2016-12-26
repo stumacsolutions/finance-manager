@@ -1,0 +1,21 @@
+group = 'com.stumac'
+
+apply plugin: 'com.gorylenko.gradle-git-properties'
+apply plugin: 'org.springframework.boot'
+
+jar {
+  baseName = 'finance-manager'
+  version = 'latest'
+}
+
+springBoot {
+  buildInfo()
+}
+
+task assembleContainer(dependsOn: assemble) {
+  doLast {
+    exec {
+      commandLine 'docker', 'build', '-t', 'stumacsolutions/finance-manager', '.'
+    }
+  }
+}
