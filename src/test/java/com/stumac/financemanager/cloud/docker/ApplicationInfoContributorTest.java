@@ -1,4 +1,4 @@
-package com.stumac.financemanager.docker.cloud;
+package com.stumac.financemanager.cloud.docker;
 
 import org.junit.Before;
 import org.junit.Test;

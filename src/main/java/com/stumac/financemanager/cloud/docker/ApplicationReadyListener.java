@@ -1,4 +1,4 @@
-package com.stumac.financemanager.docker.cloud;
+package com.stumac.financemanager.cloud.docker;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;

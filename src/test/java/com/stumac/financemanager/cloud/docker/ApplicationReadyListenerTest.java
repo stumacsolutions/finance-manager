@@ -1,7 +1,5 @@
-package com.stumac.financemanager.docker.cloud;
+package com.stumac.financemanager.cloud.docker;
 
-import com.stumac.financemanager.docker.cloud.ApplicationReadyListener.Service;
-import com.stumac.financemanager.docker.cloud.ApplicationReadyListener.ServiceLink;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.InOrder;
@@ -38,7 +36,7 @@ import static org.springframework.test.util.ReflectionTestUtils.setField;
 
 public class ApplicationReadyListenerTest {
 
-    private Service service;
+    private ApplicationReadyListener.Service service;
     private ApplicationReadyListener listener;
 
     @Mock
@@ -51,21 +49,21 @@ public class ApplicationReadyListenerTest {
     public void setUp() {
         initMocks(this);
 
-        service = Service.builder().
+        service = ApplicationReadyListener.Service.builder().
             autoRedeploy(true).
-            linkedToService(ServiceLink.builder().
+            linkedToService(ApplicationReadyListener.ServiceLink.builder().
                 fromServiceUri("test").
                 name("lb").
                 toServiceUri("lb").
                 build()).
-            linkedToService(ServiceLink.builder().
+            linkedToService(ApplicationReadyListener.ServiceLink.builder().
                 fromServiceUri("test").
                 name("web").
                 toServiceUri("other").
                 build()).
             build();
 
-        Service otherService = Service.builder().
+        ApplicationReadyListener.Service otherService = ApplicationReadyListener.Service.builder().
             autoRedeploy(false).
             targetNumberOfContainers(3).
             build();
@@ -75,11 +73,11 @@ public class ApplicationReadyListenerTest {
         setSystemPropertyValuesOnListener();
 
         when(mockRestTemplate.exchange(
-            eq("http://localhost/api/test"), same(GET), any(HttpEntity.class), same(Service.class))).
+            eq("http://localhost/api/test"), same(GET), any(HttpEntity.class), same(ApplicationReadyListener.Service.class))).
             thenReturn(ResponseEntity.ok(service));
 
         when(mockRestTemplate.exchange(
-            eq("http://localhost/api/other"), same(GET), any(HttpEntity.class), same(Service.class))).
+            eq("http://localhost/api/other"), same(GET), any(HttpEntity.class), same(ApplicationReadyListener.Service.class))).
             thenReturn(ResponseEntity.ok(otherService));
     }
 
@@ -91,7 +89,7 @@ public class ApplicationReadyListenerTest {
 
         verifyServiceConfigurationIsUpdated(
             inOrder, "http://localhost/api/test",
-            Service.builder().
+            ApplicationReadyListener.Service.builder().
                 autoRedeploy(false).
                 linkedToServices(new ArrayList<>()).
                 targetNumberOfContainers(3).
@@ -101,8 +99,8 @@ public class ApplicationReadyListenerTest {
 
         verifyServiceConfigurationIsUpdated(
             inOrder, "http://localhost/api/lb",
-            Service.builder().
-                linkedToService(ServiceLink.builder().
+            ApplicationReadyListener.Service.builder().
+                linkedToService(ApplicationReadyListener.ServiceLink.builder().
                     fromServiceUri("lb").
                     name("web").
                     toServiceUri("test").
@@ -112,14 +110,14 @@ public class ApplicationReadyListenerTest {
 
         verifyServiceConfigurationIsUpdated(
             inOrder, "http://localhost/api/other",
-            Service.builder().
+            ApplicationReadyListener.Service.builder().
                 autoRedeploy(true).
-                linkedToService(ServiceLink.builder().
+                linkedToService(ApplicationReadyListener.ServiceLink.builder().
                     fromServiceUri("other").
                     name("lb").
                     toServiceUri("lb").
                     build()).
-                linkedToService(ServiceLink.builder().
+                linkedToService(ApplicationReadyListener.ServiceLink.builder().
                     fromServiceUri("other").
                     name("web").
                     toServiceUri("test").
@@ -151,13 +149,13 @@ public class ApplicationReadyListenerTest {
         listener.onApplicationEvent(null);
 
         verify(mockRestTemplate).exchange(
-            eq("http://localhost/api/test"), same(GET), any(HttpEntity.class), same(Service.class));
+            eq("http://localhost/api/test"), same(GET), any(HttpEntity.class), same(ApplicationReadyListener.Service.class));
         verifyNoMoreInteractions(mockRestTemplate);
     }
 
     @Test(expected = IllegalStateException.class)
     public void shouldValidateThatServiceHasLinkToLoadBalancer() {
-        List<ServiceLink> linkedToServices = new ArrayList<>();
+        List<ApplicationReadyListener.ServiceLink> linkedToServices = new ArrayList<>();
         linkedToServices.add(service.getLinkedToServices().get(0));
         service.setLinkedToServices(linkedToServices);
 
@@ -166,7 +164,7 @@ public class ApplicationReadyListenerTest {
 
     @Test(expected = IllegalStateException.class)
     public void shouldValidateThatServiceHasLinkToOtherService() {
-        List<ServiceLink> linkedToServices = new ArrayList<>();
+        List<ApplicationReadyListener.ServiceLink> linkedToServices = new ArrayList<>();
         linkedToServices.add(service.getLinkedToServices().get(1));
         service.setLinkedToServices(linkedToServices);
 
@@ -178,9 +176,9 @@ public class ApplicationReadyListenerTest {
         setField(listener, "serviceApiUri", "test");
     }
 
-    private void verifyServiceConfigurationIsUpdated(InOrder inOrder, String url, Service body) {
+    private void verifyServiceConfigurationIsUpdated(InOrder inOrder, String url, ApplicationReadyListener.Service body) {
         HttpHeaders httpHeaders = constructExpectedHttpHeaders();
-        HttpEntity<Service> entity = new HttpEntity<>(body, httpHeaders);
+        HttpEntity<ApplicationReadyListener.Service> entity = new HttpEntity<>(body, httpHeaders);
         inOrder.verify(mockRestTemplate, times(1)).exchange(
             eq(url), same(PATCH), refEq(entity), same(Void.class));
     }

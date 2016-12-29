@@ -1,4 +1,4 @@
-package com.stumac.financemanager.docker.cloud;
+package com.stumac.financemanager.cloud.docker;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.actuate.info.Info;
