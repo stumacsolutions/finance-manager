@@ -1,0 +1,9 @@
+<field xmlns:th="http://www.thymeleaf.org">
+  <div class="form-group" th:classappend="(${#fields.hasErrors(fieldName)}? ' has-error')">
+    <label class="col-lg-2 control-label" th:for="${fieldName}" th:text="${label}">Label</label>
+    <div class="col-lg-10">
+      <input class="form-control" name="${fieldName}" th:field="*{date}" th:id="${fieldName}" th:type="${fieldType}"/>
+      <span class="help-block" th:errors="*{date}" th:if="${#fields.hasErrors(fieldName)}">Invalid</span>
+    </div>
+  </div>
+</field>
