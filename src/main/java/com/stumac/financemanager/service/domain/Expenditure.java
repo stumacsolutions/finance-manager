@@ -10,6 +10,8 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 
+import static java.lang.Boolean.TRUE;
+
 @Getter
 @Setter
 public class Expenditure {
@@ -30,5 +32,5 @@ public class Expenditure {
     private LocalDate date;
 
     @NotNull
-    private Boolean receipt;
+    private Boolean receipt = TRUE;
 }
