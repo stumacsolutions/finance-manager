@@ -7,12 +7,13 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Lob;
 import java.time.LocalDate;
+
+import static javax.persistence.EnumType.STRING;
 
 @Data
 @Entity
@@ -28,8 +29,8 @@ public class Expenditure {
     @Column(name = "amount", nullable = false)
     private int amount;
 
+    @Enumerated(value = STRING)
     @Column(name = "category", nullable = false)
-    @Enumerated(EnumType.STRING)
     private ExpenditureCategory category;
 
     @Lob
