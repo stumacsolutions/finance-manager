@@ -1,22 +1,26 @@
 package com.stumac.financemanager.security;
 
 import com.stumac.financemanager.ApplicationConfig;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.security.oauth2.resource.AuthoritiesExtractor;
 import org.springframework.boot.autoconfigure.security.oauth2.resource.PrincipalExtractor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Profile;
+
+import java.util.Map;
 
 import static org.springframework.security.core.authority.AuthorityUtils.commaSeparatedStringToAuthorityList;
 
 @Configuration
-@Profile("google")
-class GoogleSecurityConfig {
+class ExtractorConfig {
+
+    @Autowired
+    ApplicationConfig config;
 
     @Bean
-    AuthoritiesExtractor authoritiesExtractor(ApplicationConfig config) {
+    AuthoritiesExtractor authoritiesExtractor() {
         return map -> {
-            String username = (String) map.get("email");
+            String username = extract("username", map);
             return config.getSecurity().getAdmins().contains(username) ?
                 commaSeparatedStringToAuthorityList("ROLE_USER,ROLE_ADMIN") :
                 commaSeparatedStringToAuthorityList("ROLE_USER");
@@ -26,9 +30,17 @@ class GoogleSecurityConfig {
     @Bean
     PrincipalExtractor principalExtractor() {
         return map -> User.builder()
-            .avatarUrl((String) map.get("picture"))
-            .name((String) map.get("given_name"))
-            .username((String) map.get("email"))
+            .avatarUrl(extract("avatarUrl", map))
+            .name(extract("name", map))
+            .username(extract("username", map))
             .build();
+    }
+
+    private String extract(String fieldName, Map<String, Object> fieldValues) {
+        ApplicationConfig.Security security = config.getSecurity();
+        ApplicationConfig.Info info = security.getInfo();
+        Map<String, String> keys = info.getKeys();
+        String key = keys.get(fieldName);
+        return (String) fieldValues.get(key);
     }
 }

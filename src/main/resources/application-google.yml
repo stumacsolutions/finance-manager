@@ -3,6 +3,11 @@ security:
   admins:
     - stumacsolutions@gmail.com
     - stuart.mcgregor@gmail.com
+  info:
+    keys:
+      avatarUrl: picture
+      name: given_name
+      username: email
   oauth2:
     client:
       access-token-uri: https://www.googleapis.com/oauth2/v4/token

@@ -2,6 +2,11 @@
 security:
   admins:
     - stumacsolutions
+  info:
+      keys:
+        avatarUrl: avatar_url
+        name: name
+        username: login
   oauth2:
     client:
       access-token-uri: https://github.com/login/oauth/access_token
