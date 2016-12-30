@@ -13,16 +13,7 @@
   <form class="form-horizontal well bs-component col-lg-10 col-lg-offset-1"
         method="post" th:action="@{/expenditure}" th:object="${expenditure}">
     <fieldset>
-      <div class="form-group">
-        <label for="category" class="col-lg-2 control-label">Category</label>
-        <div class="col-lg-10">
-          <select class="form-control" id="category" name="category" th:field="*{category}">
-            <option th:each="category : ${categories}" th:value="${category.id}" th:text="${category.displayName}">
-              Category
-            </option>
-          </select>
-        </div>
-      </div>
+      <th:block th:include="fragments/select" th:with="name='category',label='Category',options='categories'"/>
       <th:block th:include="fragments/input" th:with="name='date',label='Date',type='date'"/>
       <th:block th:include="fragments/input" th:with="name='amount',label='Amount',type='number'"/>
       <th:block th:include="fragments/input" th:with="name='receipt',label='Receipt',type='checkbox'"/>
