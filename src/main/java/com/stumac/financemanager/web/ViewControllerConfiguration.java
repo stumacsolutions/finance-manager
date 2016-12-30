@@ -1,11 +1,11 @@
-package com.stumac.financemanager.config;
+package com.stumac.financemanager.web;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 @Configuration
-class WebConfig extends WebMvcConfigurerAdapter {
+class ViewControllerConfiguration extends WebMvcConfigurerAdapter {
 
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
