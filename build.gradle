@@ -43,6 +43,7 @@ dependencies {
   runtime('org.webjars:webjars-locator')
   runtime('org.webjars.bower:bootstrap:3.3.7')
   runtime('org.webjars.bower:jquery:3.1.1')
+  runtime('org.webjars.bower:bootstrap-validator:0.11.5')
   testCompile('info.cukes:cucumber-java:1.2.4')
   testCompile('info.cukes:cucumber-junit:1.2.4')
   testCompile('info.cukes:cucumber-spring:1.2.4')
