@@ -2,7 +2,6 @@
   <label class="col-lg-2 control-label" th:for="${name}" th:text="${label}">Label</label>
   <div class="col-lg-10">
     <input class="form-control" th:field="*{__${name}__}" th:id="${name}" th:type="${type}"/>
-    <span class="help-block with-errors" th:if="${#fields.hasErrors(name)}" th:errors="*{__${name}__}">Invalid</span>
-    <span class="help-block with-errors" th:unless="${#fields.hasErrors(name)}"></span>
+    <th:block th:include="fragments/errors" />
   </div>
 </div>

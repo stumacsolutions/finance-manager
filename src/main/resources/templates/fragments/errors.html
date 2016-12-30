@@ -1,0 +1,4 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<span class="help-block with-errors" th:if="${#fields.hasErrors(name)}" th:errors="*{__${name}__}">Invalid</span>
+<span class="help-block with-errors" th:unless="${#fields.hasErrors(name)}"></span>
+</html>
