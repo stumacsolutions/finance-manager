@@ -1,5 +1,6 @@
 package com.stumac.financemanager.security;
 
+import com.stumac.financemanager.ApplicationConfig;
 import org.springframework.boot.autoconfigure.security.oauth2.resource.AuthoritiesExtractor;
 import org.springframework.boot.autoconfigure.security.oauth2.resource.PrincipalExtractor;
 import org.springframework.context.annotation.Bean;
@@ -13,10 +14,10 @@ import static org.springframework.security.core.authority.AuthorityUtils.commaSe
 class GitHubSecurityConfig {
 
     @Bean
-    AuthoritiesExtractor authoritiesExtractor() {
+    AuthoritiesExtractor authoritiesExtractor(ApplicationConfig config) {
         return map -> {
             String username = (String) map.get("login");
-            return "stumacsolutions".equals(username) ?
+            return config.getSecurity().getAdmins().contains(username) ?
                 commaSeparatedStringToAuthorityList("ROLE_USER,ROLE_ADMIN") :
                 commaSeparatedStringToAuthorityList("ROLE_USER");
         };
