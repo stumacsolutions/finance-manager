@@ -10,7 +10,7 @@
   <div class="page-header col-lg-offset-1">
     <h2>Submit your expenditure details</h2>
   </div>
-  <form class="form-horizontal well bs-component col-lg-10 col-lg-offset-1"
+  <form class="form-horizontal well col-lg-offset-1 col-lg-10"
         method="post" th:action="@{/expenditure}" th:object="${expenditure}">
     <fieldset>
       <th:block th:include="fragments/select" th:with="name='category',label='Category',options='categories'"/>
