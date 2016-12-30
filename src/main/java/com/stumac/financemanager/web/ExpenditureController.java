@@ -14,7 +14,7 @@ import javax.validation.Valid;
 
 @Controller
 @RequiredArgsConstructor
-public class ExpenditureController {
+class ExpenditureController {
 
     private final ExpenditureService service;
 
