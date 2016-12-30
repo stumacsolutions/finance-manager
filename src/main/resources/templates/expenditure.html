@@ -1,6 +1,7 @@
 <html
   xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
   xmlns:th="http://www.thymeleaf.org"
+  xmlns:val="http://sourceforge.net/projects/html5valdialect"
   layout:decorator="layouts/main">
 <head>
   <title>Expenditure</title>
@@ -11,7 +12,7 @@
     <h2>Submit your expenditure details</h2>
   </div>
   <form class="form-horizontal well col-lg-offset-1 col-lg-10"
-        method="post" th:action="@{/expenditure}" th:object="${expenditure}">
+        method="post" th:action="@{/expenditure}" th:object="${expenditure}" val:validate="${expenditure}">
     <fieldset>
       <th:block th:include="fragments/select" th:with="name='category',label='Category',options='categories'"/>
       <th:block th:include="fragments/input" th:with="name='date',label='Date',type='date'"/>
