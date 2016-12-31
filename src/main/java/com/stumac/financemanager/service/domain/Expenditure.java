@@ -17,7 +17,7 @@ import static java.lang.Boolean.TRUE;
 @Setter
 public class Expenditure {
 
-    @Min(1)
+    @Min(0)
     @NotNull
     @NumberFormat(style = NumberFormat.Style.CURRENCY)
     private Double amount;
