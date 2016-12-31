@@ -12,7 +12,7 @@
     <h2>Submit expenditure details</h2>
   </div>
   <form class="form-horizontal well col-lg-offset-1 col-lg-10"
-        data-disable="false" data-toggle="validator"
+        data-disable="false" data-toggle="validator" novalidate="true"
         method="post" th:action="@{/expenditure}" th:object="${expenditure}" val:validate="${expenditure}">
     <fieldset>
       <th:block th:include="fragments/select" th:with="name='category',label='Category',options='categories'"/>
