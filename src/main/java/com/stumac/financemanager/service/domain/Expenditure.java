@@ -12,6 +12,8 @@ import javax.validation.constraints.Size;
 import java.time.LocalDate;
 
 import static java.lang.Boolean.TRUE;
+import static org.springframework.format.annotation.DateTimeFormat.ISO.DATE;
+import static org.springframework.format.annotation.NumberFormat.Style.CURRENCY;
 
 @Getter
 @Setter
@@ -19,7 +21,7 @@ public class Expenditure {
 
     @Min(0)
     @NotNull
-    @NumberFormat(style = NumberFormat.Style.CURRENCY)
+    @NumberFormat(style = CURRENCY)
     private Double amount;
 
     @NotNull
@@ -30,7 +32,7 @@ public class Expenditure {
     private String comments;
 
     @NotNull
-    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+    @DateTimeFormat(iso = DATE)
     private LocalDate date;
 
     @NotNull
