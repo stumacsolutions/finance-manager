@@ -9,6 +9,7 @@ import org.springframework.format.annotation.NumberFormat;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.math.BigDecimal;
 import java.time.LocalDate;
 
 import static java.lang.Boolean.TRUE;
@@ -22,7 +23,7 @@ public class Expenditure {
     @Min(0)
     @NotNull
     @NumberFormat(style = CURRENCY)
-    private Double amount;
+    private BigDecimal amount;
 
     @NotNull
     @NotEmpty

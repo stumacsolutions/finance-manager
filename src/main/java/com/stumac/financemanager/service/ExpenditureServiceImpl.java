@@ -6,6 +6,10 @@ import com.stumac.financemanager.service.domain.Expenditure;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
+import java.math.BigDecimal;
+
+import static java.math.BigDecimal.ROUND_HALF_UP;
+
 @Component
 @RequiredArgsConstructor
 class ExpenditureServiceImpl implements ExpenditureService {
@@ -26,7 +30,9 @@ class ExpenditureServiceImpl implements ExpenditureService {
     }
 
     private int getAmount(Expenditure expenditure) {
-        Double v = expenditure.getAmount() * 100;
-        return v.intValue();
+        return BigDecimal.valueOf(100)
+            .multiply(expenditure.getAmount())
+            .setScale(0, ROUND_HALF_UP)
+            .intValue();
     }
 }
