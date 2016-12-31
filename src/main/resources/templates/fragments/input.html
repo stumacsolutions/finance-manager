@@ -1,8 +1,9 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <div class="form-group" th:classappend="(${#fields.hasErrors(name)}? ' has-error')">
   <label class="col-lg-2 control-label" th:for="${name}" th:text="${label}">Label</label>
-  <div class="col-lg-10">
-    <input class="form-control" th:field="*{__${name}__}" th:id="${name}" th:type="${type}"/>
+  <div th:switch="${type}" class="col-lg-10">
+    <textarea th:case="textarea" class="form-control" th:field="*{__${name}__}" th:id="${name}"></textarea>
+    <input th:case="*" class="form-control" th:field="*{__${name}__}" th:id="${name}" th:type="${type}"/>
     <th:block th:include="fragments/errors" />
   </div>
 </div>
