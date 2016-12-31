@@ -1,7 +1,9 @@
-<div xmlns:th="http://www.thymeleaf.org" class="form-group" th:classappend="(${#fields.hasErrors(name)}? ' has-error')">
+<html xmlns:th="http://www.thymeleaf.org">
+<div class="form-group" th:classappend="(${#fields.hasErrors(name)}? ' has-error')">
   <label class="col-lg-2 control-label" th:for="${name}" th:text="${label}">Label</label>
   <div class="col-lg-10">
     <textarea class="form-control" th:field="*{__${name}__}" th:id="${name}"></textarea>
     <th:block th:include="fragments/errors" />
   </div>
 </div>
+</html>
