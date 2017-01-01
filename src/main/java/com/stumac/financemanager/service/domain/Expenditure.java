@@ -14,6 +14,7 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 
 import static java.lang.Boolean.TRUE;
+import static java.time.LocalDate.now;
 import static org.springframework.format.annotation.DateTimeFormat.ISO.DATE;
 import static org.springframework.format.annotation.NumberFormat.Style.CURRENCY;
 
@@ -36,8 +37,7 @@ public class Expenditure {
 
     @NotNull
     @DateTimeFormat(iso = DATE)
-    private LocalDate date;
+    private LocalDate date = now();
 
-    @NotNull
     private Boolean receipt = TRUE;
 }
