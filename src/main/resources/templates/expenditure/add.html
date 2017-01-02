@@ -14,7 +14,7 @@
   <form autocomplete="off" novalidate="novalidate"
         class="form-horizontal well col-lg-offset-1 col-lg-10"
         data-disable="false" data-toggle="validator"
-        method="post" th:action="@{/expenditure}" th:object="${expenditure}" val:validate="${expenditure}">
+        method="post" th:action="@{/expenditure/add}" th:object="${expenditure}" val:validate="${expenditure}">
     <fieldset>
       <th:block th:include="fragments/select" th:with="name='category',label='Category',options='categories'"/>
       <th:block th:include="fragments/input" th:with="name='date',label='Date',type='date'"/>
