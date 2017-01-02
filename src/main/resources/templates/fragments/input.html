@@ -4,7 +4,7 @@
   <div th:switch="${type}" class="col-lg-10">
     <textarea th:case="textarea" class="form-control" rows="3" th:field="*{__${name}__}" th:id="${name}"></textarea>
     <input th:case="*" class="form-control" th:field="*{__${name}__}" th:id="${name}" th:type="${type}"/>
-    <th:block th:include="fragments/errors" />
+    <th:block th:include="fragments/errors"/>
   </div>
 </div>
 </html>
