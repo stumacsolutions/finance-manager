@@ -1,8 +1,8 @@
 package com.stumac.financemanager.web;
 
-import com.stumac.financemanager.data.domain.ExpenditureCategory;
-import com.stumac.financemanager.service.ExpenditureService;
-import com.stumac.financemanager.service.domain.Expenditure;
+import com.stumac.financemanager.data.expenditure.ExpenditureCategory;
+import com.stumac.financemanager.service.expenditure.Expenditure;
+import com.stumac.financemanager.service.expenditure.ExpenditureService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

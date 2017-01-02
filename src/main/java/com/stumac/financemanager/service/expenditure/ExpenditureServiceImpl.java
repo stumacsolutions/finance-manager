@@ -1,7 +1,7 @@
-package com.stumac.financemanager.service;
+package com.stumac.financemanager.service.expenditure;
 
-import com.stumac.financemanager.data.ExpenditureRepository;
-import com.stumac.financemanager.service.domain.Expenditure;
+import com.stumac.financemanager.data.expenditure.ExpenditureEntity;
+import com.stumac.financemanager.data.expenditure.ExpenditureRepository;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Component;
@@ -15,8 +15,7 @@ class ExpenditureServiceImpl implements ExpenditureService {
 
     @Override
     public void submitExpenditure(Expenditure expenditure) {
-        com.stumac.financemanager.data.domain.Expenditure entity =
-            mapper.map(expenditure, com.stumac.financemanager.data.domain.Expenditure.class);
+        ExpenditureEntity entity = mapper.map(expenditure, ExpenditureEntity.class);
         repository.save(entity);
     }
 }

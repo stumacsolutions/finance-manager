@@ -1,4 +1,4 @@
-package com.stumac.financemanager.web;
+package com.stumac.financemanager.web.config;
 
 import net.sourceforge.html5val.Html5ValDialect;
 import org.springframework.context.annotation.Bean;

@@ -1,4 +1,4 @@
-package com.stumac.financemanager.data.domain;
+package com.stumac.financemanager.data.expenditure;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;

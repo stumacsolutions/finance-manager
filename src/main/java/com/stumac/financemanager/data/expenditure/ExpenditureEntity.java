@@ -1,4 +1,4 @@
-package com.stumac.financemanager.data.domain;
+package com.stumac.financemanager.data.expenditure;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -20,7 +20,7 @@ import static javax.persistence.EnumType.STRING;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Expenditure {
+public class ExpenditureEntity {
 
     @Id
     @GeneratedValue

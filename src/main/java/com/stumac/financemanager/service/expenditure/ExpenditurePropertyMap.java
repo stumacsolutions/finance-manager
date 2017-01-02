@@ -1,5 +1,6 @@
-package com.stumac.financemanager.service.domain;
+package com.stumac.financemanager.service.expenditure;
 
+import com.stumac.financemanager.data.expenditure.ExpenditureEntity;
 import com.stumac.financemanager.mapping.converters.PoundsToPenceConverter;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.PropertyMap;
@@ -7,7 +8,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 @RequiredArgsConstructor
-class ExpenditurePropertyMap extends PropertyMap<Expenditure, com.stumac.financemanager.data.domain.Expenditure> {
+class ExpenditurePropertyMap extends PropertyMap<Expenditure, ExpenditureEntity> {
 
     private final PoundsToPenceConverter poundsToPenceConverter;
 

@@ -1,6 +1,7 @@
-package com.stumac.financemanager.security;
+package com.stumac.financemanager.security.config;
 
 import com.stumac.financemanager.ApplicationConfig;
+import com.stumac.financemanager.security.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.security.oauth2.resource.AuthoritiesExtractor;
 import org.springframework.boot.autoconfigure.security.oauth2.resource.PrincipalExtractor;

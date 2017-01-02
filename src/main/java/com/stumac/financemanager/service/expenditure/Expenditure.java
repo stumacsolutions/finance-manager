@@ -1,4 +1,4 @@
-package com.stumac.financemanager.service.domain;
+package com.stumac.financemanager.service.expenditure;
 
 import lombok.Getter;
 import lombok.Setter;
