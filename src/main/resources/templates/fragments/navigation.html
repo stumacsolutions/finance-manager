@@ -1,0 +1,47 @@
+<html xmlns:sec="http://www.thymeleaf.org/extras/spring-security" xmlns:th="http://www.thymeleaf.org">
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+              data-target="#navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" th:href="@{/}">Finance Manager</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li th:class="${navSection == 'home' ? 'active' : ''}"><a th:href="@{/}">Home</a></li>
+        <li th:class="${navSection == 'expenditure' ? 'active' : ''}"><a th:href="@{/expenditure/add}">Expenditure</a>
+        </li>
+      </ul>
+      <a class="btn btn-default navbar-btn navbar-right" sec:authorize="!hasRole('ROLE_USER')" th:href="@{/login}"
+         role="button">Login
+      </a>
+      <ul class="nav navbar-nav navbar-right" sec:authorize="hasRole('ROLE_USER')">
+        <li class="dropdown">
+          <a id="user-menu" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+             aria-expanded="false">
+            <img th:src="${#authentication.principal.avatarUrl}" height="20" width="20"/>
+            <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li class="dropdown-header" th:text="${#authentication.principal.username}">the_username</li>
+            <li>
+              <form th:action="@{/logout}" method="post" role="logout">
+                <button type="submit" class="btn btn-link">Logout</button>
+              </form>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li sec:authorize="hasRole('ROLE_ADMIN')" th:class="${navSection == 'admin' ? 'active' : ''}"><a
+          th:href="@{/admin}">Admin</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+</html>
