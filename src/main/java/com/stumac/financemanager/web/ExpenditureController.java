@@ -52,7 +52,7 @@ class ExpenditureController {
         }
     }
 
-    @PostMapping(path = "/delete/{id}")
+    @GetMapping(path = "/delete/{id}")
     public String delete(@PathVariable(name = "id") long id) {
         service.delete(id);
         return "redirect:/expenditure/manage";
