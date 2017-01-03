@@ -25,6 +25,11 @@ class ExpenditureServiceImpl implements ExpenditureService {
     }
 
     @Override
+    public void delete(long id) {
+        repository.delete(id);
+    }
+
+    @Override
     public List<Expenditure> listAll() {
         return stream(repository.findAll().spliterator(), false)
             .map(entity -> mapper.map(entity, Expenditure.class))

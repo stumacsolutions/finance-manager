@@ -6,5 +6,7 @@ public interface ExpenditureService {
 
     void add(Expenditure expenditure);
 
+    void delete(long id);
+
     List<Expenditure> listAll();
 }

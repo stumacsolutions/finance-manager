@@ -39,5 +39,7 @@ public class Expenditure {
     @DateTimeFormat(iso = DATE)
     private LocalDate date = now();
 
+    private long id;
+
     private Boolean receipt = TRUE;
 }

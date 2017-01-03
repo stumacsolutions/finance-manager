@@ -32,6 +32,11 @@
         <td nowrap="true" th:if="${expenditure.receipt}">Yes</td>
         <td nowrap="true" th:unless="${expenditure.receipt}">No</td>
         <td th:text="${expenditure.comments}"></td>
+        <td nowrap="true">
+          <form method="post" th:action="@{/expenditure/delete/__${expenditure.id}__}">
+            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+          </form>
+        </td>
       </tr>
       </tbody>
     </table>
