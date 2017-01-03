@@ -38,7 +38,7 @@ class ExpenditureController {
             return "expenditure/add";
         } else {
             service.add(expenditure);
-            return "redirect:/expenditure/add";
+            return "redirect:/expenditure/manage";
         }
     }
 

@@ -11,6 +11,9 @@
     <h2>Manage expenditure</h2>
   </div>
   <div class="col-lg-offset-1 col-lg-10">
+    <div class="btn-group pull-right" role="group">
+      <a class="btn btn-primary" th:href="@{/expenditure/add}">Add</a>
+    </div>
     <table class="table table-hover">
       <thead>
       <tr>
@@ -23,11 +26,11 @@
       </thead>
       <tbody>
       <tr th:each="expenditure : ${expenditures}">
-        <td th:text="${expenditure.category}"></td>
-        <td th:text="${expenditure.date}"></td>
-        <td th:text="${expenditure.amount}"></td>
-        <td th:if="${expenditure.receipt}">Yes</td>
-        <td th:unless="${expenditure.receipt}">No</td>
+        <td nowrap="true" th:text="${expenditure.category}"></td>
+        <td nowrap="true" th:text="${expenditure.date}"></td>
+        <td nowrap="true" th:text="${expenditure.amount}"></td>
+        <td nowrap="true" th:if="${expenditure.receipt}">Yes</td>
+        <td nowrap="true" th:unless="${expenditure.receipt}">No</td>
         <td th:text="${expenditure.comments}"></td>
       </tr>
       </tbody>
