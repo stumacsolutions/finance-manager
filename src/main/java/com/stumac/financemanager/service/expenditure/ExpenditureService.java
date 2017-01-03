@@ -8,5 +8,7 @@ public interface ExpenditureService {
 
     void delete(long id);
 
+    Expenditure get(long id);
+
     List<Expenditure> listAll();
 }

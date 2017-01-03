@@ -30,6 +30,12 @@ class ExpenditureServiceImpl implements ExpenditureService {
     }
 
     @Override
+    public Expenditure get(long id) {
+        ExpenditureEntity entity = repository.findOne(id);
+        return mapper.map(entity, Expenditure.class);
+    }
+
+    @Override
     public List<Expenditure> listAll() {
         return stream(repository.findAll().spliterator(), false)
             .map(entity -> mapper.map(entity, Expenditure.class))

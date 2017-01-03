@@ -21,6 +21,7 @@
       <th:block th:include="fragments/input" th:with="name='amount',label='Amount',type='number'"/>
       <th:block th:include="fragments/input" th:with="name='receipt',label='Receipt',type='checkbox'"/>
       <th:block th:include="fragments/input" th:with="name='comments',label='Comments',type='textarea'"/>
+      <input type="hidden" th:field="*{id}"/>
       <th:block th:include="fragments/submit"/>
     </fieldset>
   </form>

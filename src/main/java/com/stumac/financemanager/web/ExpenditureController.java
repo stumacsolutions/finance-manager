@@ -45,6 +45,13 @@ class ExpenditureController {
         }
     }
 
+    @GetMapping(path = "/edit/{id}")
+    public String editExpenditure(@PathVariable(name = "id") long id, Model model) {
+        Expenditure expenditure = service.get(id);
+        model.addAttribute("expenditure", expenditure);
+        return "expenditure/add";
+    }
+
     @PostMapping(path = "/delete/{id}")
     public String deleteExpenditure(@PathVariable(name = "id") long id) {
         service.delete(id);
