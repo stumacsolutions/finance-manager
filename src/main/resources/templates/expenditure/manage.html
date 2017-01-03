@@ -1,0 +1,37 @@
+<html
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  xmlns:th="http://www.thymeleaf.org"
+  layout:decorator="layouts/main">
+<head>
+  <title>Manage Expenditure</title>
+</head>
+<body>
+<div layout:fragment="content">
+  <div class="page-header col-lg-offset-1 col-lg-10">
+    <h2>Manage expenditure</h2>
+  </div>
+  <div class="col-lg-offset-1 col-lg-10">
+    <table class="table table-hover">
+      <thead>
+      <tr>
+        <th>Category</th>
+        <th>Date</th>
+        <th>Amount</th>
+        <th>Receipt</th>
+        <th>Comments</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr th:each="expenditure : ${expenditures}">
+        <td th:text="${expenditure.category}"></td>
+        <td th:text="${expenditure.date}"></td>
+        <td th:text="${expenditure.amount}"></td>
+        <td th:text="${expenditure.receipt}"></td>
+        <td th:text="${expenditure.comments}"></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</body>
+</html>

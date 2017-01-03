@@ -1,6 +1,10 @@
 package com.stumac.financemanager.service.expenditure;
 
+import java.util.List;
+
 public interface ExpenditureService {
 
-    void submitExpenditure(Expenditure expenditure);
+    void add(Expenditure expenditure);
+
+    List<Expenditure> listAll();
 }

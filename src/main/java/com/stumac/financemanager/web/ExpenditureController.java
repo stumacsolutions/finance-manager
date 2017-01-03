@@ -20,18 +20,24 @@ class ExpenditureController {
     private final ExpenditureService service;
 
     @GetMapping(path = "/expenditure/add")
-    public String form(Model model) {
+    public String getAddExpenditureForm(Model model) {
         model.addAttribute("expenditure", new Expenditure());
         return "expenditure/add";
     }
 
+    @GetMapping(path = "/expenditure/manage")
+    public String getManageExpenditureForm(Model model) {
+        model.addAttribute("expenditures", service.listAll());
+        return "expenditure/manage";
+    }
+
     @PostMapping(path = "/expenditure/add")
-    public String submit(@Valid Expenditure expenditure, BindingResult bindingResult, Model model) {
+    public String addExpenditure(@Valid Expenditure expenditure, BindingResult bindingResult, Model model) {
         if (bindingResult.hasErrors()) {
             model.addAttribute("expenditure", expenditure);
             return "expenditure/add";
         } else {
-            service.submitExpenditure(expenditure);
+            service.add(expenditure);
             return "redirect:/expenditure/add";
         }
     }
