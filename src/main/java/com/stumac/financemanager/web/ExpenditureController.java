@@ -22,38 +22,38 @@ class ExpenditureController {
 
     private final ExpenditureService service;
 
-    @GetMapping(path = "/add")
-    public String getAddExpenditureForm(Model model) {
-        model.addAttribute("expenditure", new Expenditure());
-        return "expenditure/add";
-    }
-
     @GetMapping(path = "/manage")
-    public String getManageExpenditureForm(Model model) {
+    public String manage(Model model) {
         model.addAttribute("expenditures", service.listAll());
         return "expenditure/manage";
     }
 
-    @PostMapping(path = "/add")
-    public String addExpenditure(@Valid Expenditure expenditure, BindingResult bindingResult, Model model) {
+    @GetMapping(path = "/add")
+    public String add(Model model) {
+        model.addAttribute("expenditure", new Expenditure());
+        return "expenditure/edit";
+    }
+
+    @GetMapping(path = "/edit/{id}")
+    public String edit(@PathVariable(name = "id") long id, Model model) {
+        Expenditure expenditure = service.get(id);
+        model.addAttribute("expenditure", expenditure);
+        return "expenditure/edit";
+    }
+
+    @PostMapping(path = "/save")
+    public String save(@Valid Expenditure expenditure, BindingResult bindingResult, Model model) {
         if (bindingResult.hasErrors()) {
             model.addAttribute("expenditure", expenditure);
-            return "expenditure/add";
+            return "expenditure/edit";
         } else {
             service.add(expenditure);
             return "redirect:/expenditure/manage";
         }
     }
 
-    @GetMapping(path = "/edit/{id}")
-    public String editExpenditure(@PathVariable(name = "id") long id, Model model) {
-        Expenditure expenditure = service.get(id);
-        model.addAttribute("expenditure", expenditure);
-        return "expenditure/add";
-    }
-
     @PostMapping(path = "/delete/{id}")
-    public String deleteExpenditure(@PathVariable(name = "id") long id) {
+    public String delete(@PathVariable(name = "id") long id) {
         service.delete(id);
         return "redirect:/expenditure/manage";
     }
