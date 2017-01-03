@@ -26,7 +26,8 @@
         <td th:text="${expenditure.category}"></td>
         <td th:text="${expenditure.date}"></td>
         <td th:text="${expenditure.amount}"></td>
-        <td th:text="${expenditure.receipt}"></td>
+        <td th:if="${expenditure.receipt}">Yes</td>
+        <td th:unless="${expenditure.receipt}">No</td>
         <td th:text="${expenditure.comments}"></td>
       </tr>
       </tbody>
