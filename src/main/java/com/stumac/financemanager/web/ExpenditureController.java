@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.validation.Valid;
@@ -20,7 +21,6 @@ class ExpenditureController {
 
     @GetMapping(path = "/expenditure/add")
     public String form(Model model) {
-        model.addAttribute("categories", ExpenditureCategory.values());
         model.addAttribute("expenditure", new Expenditure());
         return "expenditure/add";
     }
@@ -28,12 +28,16 @@ class ExpenditureController {
     @PostMapping(path = "/expenditure/add")
     public String submit(@Valid Expenditure expenditure, BindingResult bindingResult, Model model) {
         if (bindingResult.hasErrors()) {
-            model.addAttribute("categories", ExpenditureCategory.values());
             model.addAttribute("expenditure", expenditure);
             return "expenditure/add";
         } else {
             service.submitExpenditure(expenditure);
             return "redirect:/expenditure/add";
         }
+    }
+
+    @ModelAttribute("categories")
+    public ExpenditureCategory[] getCategories() {
+        return ExpenditureCategory.values();
     }
 }
