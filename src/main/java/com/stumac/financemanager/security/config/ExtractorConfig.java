@@ -10,6 +10,7 @@ import org.springframework.context.annotation.Configuration;
 
 import java.util.Map;
 
+import static java.time.LocalDate.now;
 import static org.springframework.security.core.authority.AuthorityUtils.commaSeparatedStringToAuthorityList;
 
 @Configuration
@@ -32,6 +33,7 @@ class ExtractorConfig {
     PrincipalExtractor principalExtractor() {
         return map -> User.builder()
             .avatarUrl(extract("avatarUrl", map))
+            .lastLogin(now())
             .name(extract("name", map))
             .username(extract("username", map))
             .build();
