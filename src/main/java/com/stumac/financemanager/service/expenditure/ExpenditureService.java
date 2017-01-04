@@ -1,6 +1,7 @@
 package com.stumac.financemanager.service.expenditure;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface ExpenditureService {
 
@@ -8,7 +9,7 @@ public interface ExpenditureService {
 
     void delete(long id);
 
-    Expenditure get(long id);
+    Optional<Expenditure> get(long id);
 
     List<Expenditure> listAll();
 }

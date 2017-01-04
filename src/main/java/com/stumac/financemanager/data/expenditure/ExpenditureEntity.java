@@ -1,5 +1,6 @@
 package com.stumac.financemanager.data.expenditure;
 
+import com.stumac.financemanager.security.User;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -11,6 +12,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Lob;
+import javax.persistence.ManyToOne;
 import java.time.LocalDate;
 
 import static javax.persistence.EnumType.STRING;
@@ -42,4 +44,7 @@ public class ExpenditureEntity {
 
     @Column(name = "receipt", nullable = false)
     private boolean receipt;
+
+    @ManyToOne(optional = false)
+    private User user;
 }

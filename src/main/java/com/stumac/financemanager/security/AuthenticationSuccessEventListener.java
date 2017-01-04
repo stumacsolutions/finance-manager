@@ -23,6 +23,7 @@ public class AuthenticationSuccessEventListener implements ApplicationListener<A
             User user = maybeUser.get();
             mapper.map(principal, user);
             repository.save(user);
+            principal.setId(user.getId());
         } else {
             repository.save(principal);
         }

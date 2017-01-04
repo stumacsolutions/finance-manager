@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.validation.Valid;
+import java.util.Optional;
 
 @Controller
 @RequiredArgsConstructor
@@ -36,9 +37,12 @@ class ExpenditureController {
 
     @GetMapping(path = "/edit/{id}")
     public String edit(@PathVariable(name = "id") long id, Model model) {
-        Expenditure expenditure = service.get(id);
-        model.addAttribute("expenditure", expenditure);
-        return "expenditure/edit";
+        Optional<Expenditure> maybeExpenditure = service.get(id);
+        if (maybeExpenditure.isPresent()) {
+            model.addAttribute("expenditure", maybeExpenditure);
+            return "expenditure/edit";
+        }
+        return "redirect:/expenditure/manage";
     }
 
     @PostMapping(path = "/save")
