@@ -15,11 +15,11 @@ import java.time.LocalDate;
 
 import static javax.persistence.EnumType.STRING;
 
-@Entity
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Entity(name = "expenditure")
 public class ExpenditureEntity {
 
     @Id
