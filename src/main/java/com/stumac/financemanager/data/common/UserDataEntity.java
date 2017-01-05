@@ -1,4 +1,4 @@
-package com.stumac.financemanager.data.user;
+package com.stumac.financemanager.data.common;
 
 import com.stumac.financemanager.security.User;
 import lombok.AllArgsConstructor;
@@ -16,7 +16,7 @@ import javax.persistence.MappedSuperclass;
 @MappedSuperclass
 @NoArgsConstructor
 @AllArgsConstructor
-public abstract class UserOwnedDataEntity {
+public abstract class UserDataEntity {
 
     @Id
     @GeneratedValue

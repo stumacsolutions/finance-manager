@@ -1,8 +1,8 @@
 package com.stumac.financemanager.data.expenditure;
 
-import com.stumac.financemanager.data.user.UserOwnedDataRepository;
+import com.stumac.financemanager.data.common.UserDataRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface ExpenditureRepository extends UserOwnedDataRepository<ExpenditureEntity> {
+public interface ExpenditureRepository extends UserDataRepository<ExpenditureEntity> {
 }

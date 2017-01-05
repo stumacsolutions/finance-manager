@@ -1,11 +1,11 @@
-package com.stumac.financemanager.service.user;
+package com.stumac.financemanager.service.common;
 
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
-public abstract class UserOwnedData {
+public abstract class UserData {
 
     private long id;
 }

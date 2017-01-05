@@ -1,6 +1,6 @@
 package com.stumac.financemanager.service.expenditure;
 
-import com.stumac.financemanager.service.user.UserOwnedData;
+import com.stumac.financemanager.service.common.UserData;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.validator.constraints.NotEmpty;
@@ -21,7 +21,7 @@ import static org.springframework.format.annotation.NumberFormat.Style.CURRENCY;
 
 @Getter
 @Setter
-public class Expenditure extends UserOwnedData {
+public class Expenditure extends UserData {
 
     @Min(0)
     @NotNull

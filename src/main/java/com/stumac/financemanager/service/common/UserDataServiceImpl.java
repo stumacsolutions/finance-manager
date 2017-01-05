@@ -1,7 +1,7 @@
-package com.stumac.financemanager.service.user;
+package com.stumac.financemanager.service.common;
 
-import com.stumac.financemanager.data.user.UserOwnedDataEntity;
-import com.stumac.financemanager.data.user.UserOwnedDataRepository;
+import com.stumac.financemanager.data.common.UserDataEntity;
+import com.stumac.financemanager.data.common.UserDataRepository;
 import com.stumac.financemanager.security.User;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.Authentication;
@@ -15,10 +15,10 @@ import static java.util.stream.Collectors.toList;
 import static java.util.stream.StreamSupport.stream;
 
 @RequiredArgsConstructor
-public abstract class UserOwnedDataServiceImpl<E extends UserOwnedDataEntity, T extends UserOwnedData>
-    implements UserOwnedDataService<T> {
+public abstract class UserDataServiceImpl<E extends UserDataEntity, T extends UserData>
+    implements UserDataService<T> {
 
-    private final UserOwnedDataRepository<E> repository;
+    private final UserDataRepository<E> repository;
 
     @Override
     public void add(T data) {

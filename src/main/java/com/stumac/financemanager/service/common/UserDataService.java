@@ -1,9 +1,9 @@
-package com.stumac.financemanager.service.user;
+package com.stumac.financemanager.service.common;
 
 import java.util.List;
 import java.util.Optional;
 
-public interface UserOwnedDataService<T extends UserOwnedData> {
+public interface UserDataService<T extends UserData> {
 
     void add(T expenditure);
 

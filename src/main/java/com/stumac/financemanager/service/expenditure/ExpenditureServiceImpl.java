@@ -2,13 +2,13 @@ package com.stumac.financemanager.service.expenditure;
 
 import com.stumac.financemanager.data.expenditure.ExpenditureEntity;
 import com.stumac.financemanager.data.expenditure.ExpenditureRepository;
-import com.stumac.financemanager.service.user.UserOwnedDataServiceImpl;
+import com.stumac.financemanager.service.common.UserDataServiceImpl;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
-class ExpenditureServiceImpl extends UserOwnedDataServiceImpl<ExpenditureEntity, Expenditure> implements ExpenditureService {
+class ExpenditureServiceImpl extends UserDataServiceImpl<ExpenditureEntity, Expenditure> implements ExpenditureService {
 
     private final ModelMapper mapper;
 
