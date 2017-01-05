@@ -3,6 +3,7 @@ package com.stumac.financemanager.web;
 import com.stumac.financemanager.data.expenditure.ExpenditureCategory;
 import com.stumac.financemanager.service.expenditure.Expenditure;
 import com.stumac.financemanager.service.expenditure.ExpenditureService;
+import com.stumac.financemanager.web.exception.ResourceNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -42,7 +43,7 @@ class ExpenditureController {
             model.addAttribute("expenditure", maybeExpenditure);
             return "expenditure/edit";
         }
-        return "redirect:/expenditure/manage";
+        throw new ResourceNotFoundException();
     }
 
     @PostMapping(path = "/save")
