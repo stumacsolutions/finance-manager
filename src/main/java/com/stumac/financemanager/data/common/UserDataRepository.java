@@ -7,9 +7,9 @@ import org.springframework.data.repository.PagingAndSortingRepository;
 import java.util.Optional;
 
 @NoRepositoryBean
-public interface UserDataRepository<T extends UserDataEntity> extends PagingAndSortingRepository<T, Long> {
+public interface UserDataRepository<E extends UserDataEntity> extends PagingAndSortingRepository<E, Long> {
 
-    Iterable<T> findAllByUser(User user);
+    Iterable<E> findAllByUser(User user);
 
-    Optional<T> findOneByIdAndUser(long id, User user);
+    Optional<E> findOneByIdAndUser(long id, User user);
 }

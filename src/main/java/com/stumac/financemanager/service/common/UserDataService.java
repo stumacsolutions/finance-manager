@@ -3,13 +3,13 @@ package com.stumac.financemanager.service.common;
 import java.util.List;
 import java.util.Optional;
 
-public interface UserDataService<T extends UserData> {
+public interface UserDataService<D extends UserData> {
 
-    void add(T expenditure);
+    void add(D expenditure);
 
     void delete(long id);
 
-    Optional<T> get(long id);
+    Optional<D> get(long id);
 
-    List<T> listAll();
+    List<D> listAll();
 }

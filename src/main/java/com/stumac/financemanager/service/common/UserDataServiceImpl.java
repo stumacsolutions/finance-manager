@@ -16,16 +16,16 @@ import static java.util.stream.Collectors.toList;
 import static java.util.stream.StreamSupport.stream;
 
 @RequiredArgsConstructor
-public abstract class UserDataServiceImpl<E extends UserDataEntity, T extends UserData>
-    implements UserDataService<T> {
+public abstract class UserDataServiceImpl<E extends UserDataEntity, D extends UserData>
+    implements UserDataService<D> {
 
     private final ModelMapper mapper;
     private final UserDataRepository<E> repository;
-    private final Class<T> domainClass;
+    private final Class<D> domainClass;
     private final Class<E> entityClass;
 
     @Override
-    public void add(T data) {
+    public void add(D data) {
         E entity = map(data);
         entity.setUser(getUser());
         repository.save(entity);
@@ -37,7 +37,7 @@ public abstract class UserDataServiceImpl<E extends UserDataEntity, T extends Us
     }
 
     @Override
-    public Optional<T> get(long id) {
+    public Optional<D> get(long id) {
         Optional<E> maybeEntity = repository.findOneByIdAndUser(id, getUser());
         return maybeEntity.isPresent() ?
             Optional.of(map(maybeEntity.get())) :
@@ -45,18 +45,18 @@ public abstract class UserDataServiceImpl<E extends UserDataEntity, T extends Us
     }
 
     @Override
-    public List<T> listAll() {
+    public List<D> listAll() {
         Iterable<E> data = repository.findAllByUser(getUser());
         return stream(data.spliterator(), false)
             .map(this::map)
             .collect(toList());
     }
 
-    private E map(T source) {
+    private E map(D source) {
         return mapper.map(source, entityClass);
     }
 
-    private T map(E source) {
+    private D map(E source) {
         return mapper.map(source, domainClass);
     }
 
