@@ -1,15 +1,8 @@
 package com.stumac.financemanager.data.expenditure;
 
-import com.stumac.financemanager.security.User;
-import org.springframework.data.repository.PagingAndSortingRepository;
+import com.stumac.financemanager.data.user.UserOwnedDataRepository;
 import org.springframework.stereotype.Repository;
 
-import java.util.Optional;
-
 @Repository
-public interface ExpenditureRepository extends PagingAndSortingRepository<ExpenditureEntity, Long> {
-
-    Iterable<ExpenditureEntity> findAllByUser(User user);
-
-    Optional<ExpenditureEntity> findOneByIdAndUser(long id, User user);
+public interface ExpenditureRepository extends UserOwnedDataRepository<ExpenditureEntity> {
 }

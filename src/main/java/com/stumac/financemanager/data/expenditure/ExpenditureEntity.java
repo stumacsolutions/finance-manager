@@ -1,6 +1,6 @@
 package com.stumac.financemanager.data.expenditure;
 
-import com.stumac.financemanager.security.User;
+import com.stumac.financemanager.data.user.UserOwnedData;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -9,10 +9,7 @@ import lombok.Setter;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import javax.persistence.Lob;
-import javax.persistence.ManyToOne;
 import java.time.LocalDate;
 
 import static javax.persistence.EnumType.STRING;
@@ -22,11 +19,7 @@ import static javax.persistence.EnumType.STRING;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity(name = "expenditure")
-public class ExpenditureEntity {
-
-    @Id
-    @GeneratedValue
-    private long id;
+public class ExpenditureEntity extends UserOwnedData {
 
     @Column(name = "amount", nullable = false)
     private int amount;
@@ -44,7 +37,4 @@ public class ExpenditureEntity {
 
     @Column(name = "receipt", nullable = false)
     private boolean receipt;
-
-    @ManyToOne(optional = false)
-    private User user;
 }
