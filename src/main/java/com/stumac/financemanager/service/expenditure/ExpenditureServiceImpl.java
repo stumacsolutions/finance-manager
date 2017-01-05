@@ -10,21 +10,8 @@ import org.springframework.stereotype.Component;
 @Component
 class ExpenditureServiceImpl extends UserDataServiceImpl<ExpenditureEntity, Expenditure> implements ExpenditureService {
 
-    private final ModelMapper mapper;
-
     @Autowired
     public ExpenditureServiceImpl(ModelMapper mapper, ExpenditureRepository repository) {
-        super(repository);
-        this.mapper = mapper;
-    }
-
-    @Override
-    protected ExpenditureEntity map(Expenditure source) {
-        return mapper.map(source, ExpenditureEntity.class);
-    }
-
-    @Override
-    protected Expenditure map(ExpenditureEntity source) {
-        return mapper.map(source, Expenditure.class);
+        super(mapper, repository, Expenditure.class, ExpenditureEntity.class);
     }
 }

@@ -4,6 +4,7 @@ import com.stumac.financemanager.data.common.UserDataEntity;
 import com.stumac.financemanager.data.common.UserDataRepository;
 import com.stumac.financemanager.security.User;
 import lombok.RequiredArgsConstructor;
+import org.modelmapper.ModelMapper;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -18,7 +19,10 @@ import static java.util.stream.StreamSupport.stream;
 public abstract class UserDataServiceImpl<E extends UserDataEntity, T extends UserData>
     implements UserDataService<T> {
 
+    private final ModelMapper mapper;
     private final UserDataRepository<E> repository;
+    private final Class<T> domainClass;
+    private final Class<E> entityClass;
 
     @Override
     public void add(T data) {
@@ -48,9 +52,13 @@ public abstract class UserDataServiceImpl<E extends UserDataEntity, T extends Us
             .collect(toList());
     }
 
-    protected abstract E map(T source);
+    private E map(T source) {
+        return mapper.map(source, entityClass);
+    }
 
-    protected abstract T map(E source);
+    private T map(E source) {
+        return mapper.map(source, domainClass);
+    }
 
     private User getUser() {
         SecurityContext context = SecurityContextHolder.getContext();
