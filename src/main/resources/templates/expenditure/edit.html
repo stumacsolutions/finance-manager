@@ -4,7 +4,7 @@
   xmlns:val="http://sourceforge.net/projects/html5valdialect"
   layout:decorator="layouts/main">
 <head>
-  <title>Add Expenditure</title>
+  <title>Expenditure Details</title>
 </head>
 <body>
 <div layout:fragment="content">
@@ -14,7 +14,9 @@
   <form autocomplete="off" novalidate="novalidate"
         class="form-horizontal well col-lg-offset-1 col-lg-10"
         data-disable="false" data-toggle="validator"
-        method="post" th:action="@{/expenditure/save}" th:object="${expenditure}" val:validate="${expenditure}">
+        method="post" th:action="@{/expenditure/save}"
+        th:object="${expenditure}" val:validate="${expenditure}">
+    <p>Fill in the details of your expenditure below.</p>
     <fieldset>
       <th:block th:include="fragments/select" th:with="name='category',label='Category',options='categories'"/>
       <th:block th:include="fragments/input" th:with="name='date',label='Date',type='date'"/>

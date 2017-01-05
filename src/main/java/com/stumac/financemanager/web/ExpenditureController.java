@@ -38,12 +38,20 @@ class ExpenditureController {
 
     @GetMapping(path = "/edit/{id}")
     public String edit(@PathVariable(name = "id") long id, Model model) {
-        Optional<Expenditure> maybeExpenditure = service.get(id);
-        if (maybeExpenditure.isPresent()) {
-            model.addAttribute("expenditure", maybeExpenditure);
-            return "expenditure/edit";
-        }
-        throw new ResourceNotFoundException();
+        model.addAttribute("expenditure", getExpenditure(id));
+        return "expenditure/edit";
+    }
+
+    @GetMapping(path = "/delete/{id}")
+    public String delete(@PathVariable(name = "id") long id, Model model) {
+        model.addAttribute("expenditure", getExpenditure(id));
+        return "expenditure/delete";
+    }
+
+    @PostMapping(path = "/delete/{id}")
+    public String remove(@PathVariable(name = "id") long id) {
+        service.delete(id);
+        return "redirect:/expenditure/manage";
     }
 
     @PostMapping(path = "/save")
@@ -57,14 +65,16 @@ class ExpenditureController {
         }
     }
 
-    @GetMapping(path = "/delete/{id}")
-    public String delete(@PathVariable(name = "id") long id) {
-        service.delete(id);
-        return "redirect:/expenditure/manage";
-    }
-
     @ModelAttribute("categories")
     public ExpenditureCategory[] getCategories() {
         return ExpenditureCategory.values();
+    }
+
+    private Expenditure getExpenditure(long id) {
+        Optional<Expenditure> maybeExpenditure = service.get(id);
+        if (maybeExpenditure.isPresent()) {
+            return maybeExpenditure.get();
+        }
+        throw new ResourceNotFoundException();
     }
 }
