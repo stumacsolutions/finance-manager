@@ -1,5 +1,6 @@
 package com.stumac.financemanager.service.expenditure;
 
+import com.stumac.financemanager.service.user.UserOwnedData;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.validator.constraints.NotEmpty;
@@ -20,7 +21,7 @@ import static org.springframework.format.annotation.NumberFormat.Style.CURRENCY;
 
 @Getter
 @Setter
-public class Expenditure {
+public class Expenditure extends UserOwnedData {
 
     @Min(0)
     @NotNull
@@ -38,8 +39,6 @@ public class Expenditure {
     @NotNull
     @DateTimeFormat(iso = DATE)
     private LocalDate date = now();
-
-    private long id;
 
     private Boolean receipt = TRUE;
 }

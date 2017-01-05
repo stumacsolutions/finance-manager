@@ -1,15 +1,6 @@
 package com.stumac.financemanager.service.expenditure;
 
-import java.util.List;
-import java.util.Optional;
+import com.stumac.financemanager.service.user.UserOwnedDataService;
 
-public interface ExpenditureService {
-
-    void add(Expenditure expenditure);
-
-    void delete(long id);
-
-    Optional<Expenditure> get(long id);
-
-    List<Expenditure> listAll();
+public interface ExpenditureService extends UserOwnedDataService<Expenditure> {
 }

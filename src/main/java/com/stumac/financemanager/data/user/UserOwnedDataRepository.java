@@ -7,7 +7,7 @@ import org.springframework.data.repository.PagingAndSortingRepository;
 import java.util.Optional;
 
 @NoRepositoryBean
-public interface UserOwnedDataRepository<T extends UserOwnedData> extends PagingAndSortingRepository<T, Long> {
+public interface UserOwnedDataRepository<T extends UserOwnedDataEntity> extends PagingAndSortingRepository<T, Long> {
 
     Iterable<T> findAllByUser(User user);
 

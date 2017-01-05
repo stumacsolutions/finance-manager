@@ -16,7 +16,7 @@ import javax.persistence.MappedSuperclass;
 @MappedSuperclass
 @NoArgsConstructor
 @AllArgsConstructor
-public abstract class UserOwnedData {
+public abstract class UserOwnedDataEntity {
 
     @Id
     @GeneratedValue
