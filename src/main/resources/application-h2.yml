@@ -1,0 +1,7 @@
+---
+spring:
+  datasource:
+    schema: classpath:org/springframework/session/jdbc/schema-h2.sql
+  h2:
+    console:
+      path: /admin/h2-console

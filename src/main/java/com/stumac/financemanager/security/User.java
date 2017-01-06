@@ -10,6 +10,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import java.io.Serializable;
 import java.time.LocalDate;
 
 @Getter
@@ -17,8 +18,8 @@ import java.time.LocalDate;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity(name = "common")
-public class User {
+@Entity(name = "user")
+public class User implements Serializable {
 
     @Id
     @GeneratedValue
