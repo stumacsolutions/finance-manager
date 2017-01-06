@@ -43,6 +43,7 @@ dependencies {
   compile('org.thymeleaf.extras:thymeleaf-extras-springsecurity4')
   compileOnly('org.springframework.boot:spring-boot-configuration-processor')
   runtime('com.h2database:h2')
+  runtime('mysql:mysql-connector-java:6.0.5')
   runtime('org.webjars:webjars-locator')
   runtime('org.webjars.bower:bootstrap:3.3.7')
   runtime('org.webjars.bower:jquery:3.1.1')
