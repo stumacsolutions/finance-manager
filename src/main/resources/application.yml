@@ -14,5 +14,4 @@ spring:
     serialization:
       write-dates-as-timestamps: false
   jpa:
-    ddl-auto: create-drop
     show-sql: true
