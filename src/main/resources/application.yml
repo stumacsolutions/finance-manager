@@ -6,8 +6,9 @@ management:
       mode: full
 spring:
   datasource:
-    testWhileIdle: true
-    validationQuery: SELECT 1
+    continue-on-error: true
+    test-while-idle: true
+    validation-query: SELECT 1
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss
     serialization:
