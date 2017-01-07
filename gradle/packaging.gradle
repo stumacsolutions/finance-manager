@@ -1,7 +1,6 @@
 group = 'com.stumac'
 
 apply plugin: 'com.gorylenko.gradle-git-properties'
-apply plugin: 'org.springframework.boot'
 
 jar {
   baseName = 'finance-manager'
