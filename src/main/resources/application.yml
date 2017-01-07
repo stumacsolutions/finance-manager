@@ -5,7 +5,13 @@ management:
     git:
       mode: full
 spring:
+  datasource:
+    testWhileIdle: true
+    testWhileIdle: SELECT 1
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss
     serialization:
       write-dates-as-timestamps: false
+  jpa:
+    ddl-auto: update
+    show-sql: true
