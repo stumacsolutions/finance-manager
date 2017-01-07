@@ -2,7 +2,7 @@
 spring:
   datasource:
     schema: classpath:org/springframework/session/jdbc/schema-mysql.sql
-    url: jdbc:mysql://${MYSQL_PORT_3306_TCP_ADDR}:${MYSQL_PORT_3306_TCP_PORT}/${MYSQL_ENV_MYSQL_DATABASE}
+    url: jdbc:mysql://mysql:3306/finance-manager
     username: ${MYSQL_ENV_MYSQL_USER}
     password: ${MYSQL_ENV_MYSQL_PASSWORD}
   jpa:
