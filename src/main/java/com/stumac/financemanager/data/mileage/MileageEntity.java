@@ -8,8 +8,6 @@ import lombok.Setter;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Lob;
-import java.time.LocalDate;
 
 @Getter
 @Setter
@@ -17,13 +15,6 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @Entity(name = "mileage")
 public class MileageEntity extends UserDataEntity {
-
-    @Lob
-    @Column(name = "comments")
-    private String comments;
-
-    @Column(name = "date", nullable = false)
-    private LocalDate date;
 
     @Column(name = "distance", nullable = false)
     private int distance;

@@ -9,8 +9,6 @@ import lombok.Setter;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Enumerated;
-import javax.persistence.Lob;
-import java.time.LocalDate;
 
 import static javax.persistence.EnumType.STRING;
 
@@ -27,13 +25,6 @@ public class ExpenditureEntity extends UserDataEntity {
     @Enumerated(value = STRING)
     @Column(name = "category", nullable = false)
     private ExpenditureCategory category;
-
-    @Lob
-    @Column(name = "comments")
-    private String comments;
-
-    @Column(name = "date", nullable = false)
-    private LocalDate date;
 
     @Column(name = "receipt", nullable = false)
     private boolean receipt;
