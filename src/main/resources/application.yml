@@ -5,7 +5,13 @@ management:
     git:
       mode: full
 spring:
+  datasource:
+    continue-on-error: true
+    test-while-idle: true
+    validation-query: SELECT 1
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss
     serialization:
       write-dates-as-timestamps: false
+  jpa:
+    show-sql: true
