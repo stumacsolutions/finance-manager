@@ -1,0 +1,31 @@
+<html
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:val="http://sourceforge.net/projects/html5valdialect"
+  layout:decorator="layouts/main">
+<head>
+  <title>Income Details</title>
+</head>
+<body>
+<div layout:fragment="content">
+  <div class="page-header col-lg-offset-1 col-lg-10">
+    <h2>Income Details</h2>
+  </div>
+  <form autocomplete="off" novalidate="novalidate"
+        class="form-horizontal well col-lg-offset-1 col-lg-10"
+        data-disable="false" data-toggle="validator"
+        method="post" th:action="@{/income/save}"
+        th:object="${income}" val:validate="${income}">
+    <p>Fill in the details of your Income below.</p>
+    <fieldset>
+      <th:block th:include="fragments/select" th:with="name='source',label='Source',options='sources'"/>
+      <th:block th:include="fragments/input" th:with="name='date',label='Date',type='date'"/>
+      <th:block th:include="fragments/input" th:with="name='amount',label='Amount',type='number'"/>
+      <th:block th:include="fragments/input" th:with="name='comments',label='Comments',type='textarea'"/>
+      <input type="hidden" th:field="*{id}"/>
+      <th:block th:include="fragments/submit"/>
+    </fieldset>
+  </form>
+</div>
+</body>
+</html>
