@@ -36,4 +36,9 @@ public class User implements Serializable {
 
     @Column(name = "username", nullable = false)
     private String username;
+
+    @Override
+    public String toString() {
+        return getUsername();
+    }
 }
