@@ -20,6 +20,9 @@
         <li th:class="${navSection == 'expenditure' ? 'active' : ''}"><a
           th:href="@{/expenditure/manage}">Expenditure</a>
         </li>
+        <li th:class="${navSection == 'mileage' ? 'active' : ''}"><a
+          th:href="@{/mileage/manage}">Mileage</a>
+        </li>
       </ul>
       <a class="btn btn-default navbar-btn navbar-right" sec:authorize="!hasRole('ROLE_USER')" th:href="@{/login}"
          role="button">Login

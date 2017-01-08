@@ -1,0 +1,32 @@
+<html
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:val="http://sourceforge.net/projects/html5valdialect"
+  layout:decorator="layouts/main">
+<head>
+  <title>Mileage Details</title>
+</head>
+<body>
+<div layout:fragment="content">
+  <div class="page-header col-lg-offset-1 col-lg-10">
+    <h2>Mileage Details</h2>
+  </div>
+  <form autocomplete="off" novalidate="novalidate"
+        class="form-horizontal well col-lg-offset-1 col-lg-10"
+        data-disable="false" data-toggle="validator"
+        method="post" th:action="@{/mileage/save}"
+        th:object="${mileage}" val:validate="${mileage}">
+    <p>Fill in the details of your mileage below.</p>
+    <fieldset>
+      <th:block th:include="fragments/input" th:with="name='date',label='Date',type='date'"/>
+      <th:block th:include="fragments/input" th:with="name='start',label='Start',type='text'"/>
+      <th:block th:include="fragments/input" th:with="name='end',label='End',type='text'"/>
+      <th:block th:include="fragments/input" th:with="name='distance',label='Distance',type='number'"/>
+      <th:block th:include="fragments/input" th:with="name='comments',label='Comments',type='textarea'"/>
+      <input type="hidden" th:field="*{id}"/>
+      <th:block th:include="fragments/submit"/>
+    </fieldset>
+  </form>
+</div>
+</body>
+</html>

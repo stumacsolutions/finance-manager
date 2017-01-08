@@ -1,0 +1,47 @@
+<html
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  xmlns:th="http://www.thymeleaf.org"
+  layout:decorator="layouts/main">
+<head>
+  <title>Manage Mileage</title>
+</head>
+<body>
+<div layout:fragment="content">
+  <div class="page-header col-lg-offset-1 col-lg-10">
+    <h2>Manage Mileage</h2>
+  </div>
+  <div class="col-lg-offset-1 col-lg-10">
+    <div class="btn-group pull-right" role="group">
+      <a class="btn btn-primary" th:href="@{/mileage/add}">Add</a>
+    </div>
+    <table class="table table-hover">
+      <thead>
+      <tr>
+        <th>Date</th>
+        <th>Start</th>
+        <th>End</th>
+        <th>Distance</th>
+        <th>Comments</th>
+        <th>Actions</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr th:each="mileage : ${mileages}">
+        <td nowrap="true" th:text="${mileage.date}"></td>
+        <td nowrap="true" th:text="${mileage.start}"></td>
+        <td nowrap="true" th:text="${mileage.end}"></td>
+        <td nowrap="true" th:text="${mileage.distance}"></td>
+        <td th:text="${mileage.comments}"></td>
+        <td nowrap="true">
+          <div class="btn-toolbar" role="toolbar">
+            <a th:href="@{/mileage/edit/__${mileage.id}__}" class="btn btn-success btn-xs">Edit</a>
+            <a th:href="@{/mileage/delete/__${mileage.id}__}" class="btn btn-danger btn-xs">Delete</a>
+          </div>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</body>
+</html>
