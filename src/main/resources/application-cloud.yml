@@ -1,0 +1,8 @@
+---
+security:
+  oauth2:
+    client:
+      client-id: 690080782813-kuh2ju4gden3kjt12g01dnq1qt1urf2r.apps.googleusercontent.com
+spring:
+  profiles:
+      include: google, mysql
