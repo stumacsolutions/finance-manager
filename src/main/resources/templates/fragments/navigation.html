@@ -15,13 +15,13 @@
       <ul class="nav navbar-nav">
         <li th:class="${navigationSection == 'home' ? 'active' : ''}"><a th:href="@{/}">Home</a></li>
         <li th:class="${navigationSection == 'income' ? 'active' : ''}"><a
-          th:href="@{/income/manage}">Income</a>
+          th:href="@{/income}">Income</a>
         </li>
         <li th:class="${navigationSection == 'expenditure' ? 'active' : ''}"><a
-          th:href="@{/expenditure/manage}">Expenditure</a>
+          th:href="@{/expenditure}">Expenditure</a>
         </li>
         <li th:class="${navigationSection == 'mileage' ? 'active' : ''}"><a
-          th:href="@{/mileage/manage}">Mileage</a>
+          th:href="@{/mileage}">Mileage</a>
         </li>
       </ul>
       <a class="btn btn-default navbar-btn navbar-right" sec:authorize="!hasRole('ROLE_USER')" th:href="@{/login}"

@@ -23,7 +23,7 @@ public abstract class UserDataController<D extends UserData> {
     private final UserDataService<D> service;
     private final Class<D> serviceClass;
 
-    @GetMapping(path = "/manage")
+    @GetMapping(path = "")
     public String manage(Model model) {
         model.addAttribute(format("%ss", getType()), service.listAll());
         return format("%s/manage", getType());
@@ -51,7 +51,7 @@ public abstract class UserDataController<D extends UserData> {
     @PostMapping(path = "/delete/{id}")
     public String remove(@PathVariable(name = "id") long id) {
         service.delete(id);
-        return format("redirect:/%s/manage", getType());
+        return format("redirect:/%s", getType());
     }
 
     @PostMapping(path = "/save")
@@ -61,7 +61,7 @@ public abstract class UserDataController<D extends UserData> {
             return format("%s/edit", getType());
         } else {
             service.add(userData);
-            return format("redirect:/%s/manage", getType());
+            return format("redirect:/%s", getType());
         }
     }
 
