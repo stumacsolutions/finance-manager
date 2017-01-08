@@ -8,6 +8,7 @@ import lombok.SneakyThrows;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -62,6 +63,11 @@ public abstract class UserDataController<D extends UserData> {
             service.add(userData);
             return format("redirect:/%s/manage", getType());
         }
+    }
+
+    @ModelAttribute("navigationSection")
+    public String getNavigationSection() {
+        return getType();
     }
 
     private String getType() {

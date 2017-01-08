@@ -13,14 +13,14 @@
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-        <li th:class="${navSection == 'home' ? 'active' : ''}"><a th:href="@{/}">Home</a></li>
-        <li th:class="${navSection == 'income' ? 'active' : ''}"><a
+        <li th:class="${navigationSection == 'home' ? 'active' : ''}"><a th:href="@{/}">Home</a></li>
+        <li th:class="${navigationSection == 'income' ? 'active' : ''}"><a
           th:href="@{/income/manage}">Income</a>
         </li>
-        <li th:class="${navSection == 'expenditure' ? 'active' : ''}"><a
+        <li th:class="${navigationSection == 'expenditure' ? 'active' : ''}"><a
           th:href="@{/expenditure/manage}">Expenditure</a>
         </li>
-        <li th:class="${navSection == 'mileage' ? 'active' : ''}"><a
+        <li th:class="${navigationSection == 'mileage' ? 'active' : ''}"><a
           th:href="@{/mileage/manage}">Mileage</a>
         </li>
       </ul>
@@ -45,7 +45,7 @@
         </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li sec:authorize="hasRole('ROLE_ADMIN')" th:class="${navSection == 'admin' ? 'active' : ''}"><a
+        <li sec:authorize="hasRole('ROLE_ADMIN')" th:class="${navigationSection == 'admin' ? 'active' : ''}"><a
           th:href="@{/admin}">Admin</a></li>
       </ul>
     </div>
