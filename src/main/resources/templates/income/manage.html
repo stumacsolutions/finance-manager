@@ -17,8 +17,8 @@
     <table class="table table-hover">
       <thead>
       <tr>
-        <th>Source</th>
         <th>Date</th>
+        <th>Source</th>
         <th>Amount</th>
         <th>Comments</th>
         <th>Actions</th>
@@ -26,8 +26,8 @@
       </thead>
       <tbody>
       <tr th:each="income : ${incomes}">
-        <td nowrap="true" th:text="${income.source}"></td>
         <td nowrap="true" th:text="${income.date}"></td>
+        <td nowrap="true" th:text="${income.source}"></td>
         <td nowrap="true" th:text="${income.amount}"></td>
         <td th:text="${income.comments}"></td>
         <td nowrap="true">

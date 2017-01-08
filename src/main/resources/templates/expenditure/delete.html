@@ -20,8 +20,8 @@
     <table class="table table-hover">
       <thead>
       <tr>
-        <th>Category</th>
         <th>Date</th>
+        <th>Category</th>
         <th>Amount</th>
         <th>Receipt</th>
         <th>Comments</th>
@@ -29,8 +29,8 @@
       </thead>
       <tbody>
       <tr>
-        <td nowrap="true" th:text="${expenditure.category}"></td>
         <td nowrap="true" th:text="${expenditure.date}"></td>
+        <td nowrap="true" th:text="${expenditure.category}"></td>
         <td nowrap="true" th:text="${expenditure.amount}"></td>
         <td nowrap="true" th:if="${expenditure.receipt}">Yes</td>
         <td nowrap="true" th:unless="${expenditure.receipt}">No</td>
