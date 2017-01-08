@@ -16,4 +16,3 @@ security:
       scope: profile email
     resource:
       user-info-uri: https://www.googleapis.com/oauth2/v3/userinfo
-      prefer-token-info: false
