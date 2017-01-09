@@ -12,11 +12,16 @@
     <h2>Mileage Details</h2>
   </div>
   <form autocomplete="off" novalidate="novalidate"
-        class="form-horizontal well col-lg-offset-1 col-lg-10"
+        class="col-lg-offset-1 col-lg-10 well"
         data-disable="false" data-toggle="validator"
         method="post" th:action="@{/mileage/save}"
         th:object="${mileage}" val:validate="${mileage}">
-    <p>Fill in the details of your mileage below.</p>
+    <div class="panel-heading">
+      <div class="btn-group pull-right">
+        <a th:href="@{/mileage}">&times;</a>
+      </div>
+      <p>Fill in the details of your mileage below.</p>
+    </div>
     <fieldset>
       <th:block th:include="fragments/input" th:with="name='date',label='Date',type='date'"/>
       <th:block th:include="fragments/input" th:with="name='start',label='Start',type='text'"/>
