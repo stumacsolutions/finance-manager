@@ -27,7 +27,7 @@
       </thead>
       <tbody>
       <tr th:each="expenditure : ${expenditures}">
-        <td nowrap="true" th:text="${expenditure.date}"></td>
+        <td nowrap="true" th:text="${#temporals.format(expenditure.date, 'E dd MMM yyyy')}"></td>
         <td nowrap="true" th:text="${expenditure.category}"></td>
         <td nowrap="true" th:text="${expenditure.amount}"></td>
         <td nowrap="true" th:if="${expenditure.receipt}">Yes</td>

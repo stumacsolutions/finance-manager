@@ -27,7 +27,7 @@
       </thead>
       <tbody>
       <tr th:each="mileage : ${mileages}">
-        <td nowrap="true" th:text="${mileage.date}"></td>
+        <td nowrap="true" th:text="${#temporals.format(mileage.date, 'E dd MMM yyyy')}"></td>
         <td nowrap="true" th:text="${mileage.start}"></td>
         <td nowrap="true" th:text="${mileage.end}"></td>
         <td nowrap="true" th:text="${mileage.distance}"></td>
