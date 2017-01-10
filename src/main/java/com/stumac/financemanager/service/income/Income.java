@@ -1,9 +1,9 @@
 package com.stumac.financemanager.service.income;
 
+import com.stumac.financemanager.data.income.IncomeSource;
 import com.stumac.financemanager.service.common.UserData;
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.format.annotation.NumberFormat;
 
 import javax.validation.constraints.Digits;
@@ -24,6 +24,5 @@ public class Income extends UserData {
     private BigDecimal amount;
 
     @NotNull
-    @NotEmpty
-    private String source;
+    private IncomeSource source;
 }

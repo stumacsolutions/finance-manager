@@ -1,9 +1,9 @@
 package com.stumac.financemanager.service.expenditure;
 
+import com.stumac.financemanager.data.expenditure.ExpenditureCategory;
 import com.stumac.financemanager.service.common.UserData;
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.format.annotation.NumberFormat;
 
 import javax.validation.constraints.Digits;
@@ -25,8 +25,7 @@ public class Expenditure extends UserData {
     private BigDecimal amount;
 
     @NotNull
-    @NotEmpty
-    private String category;
+    private ExpenditureCategory category;
 
     private Boolean receipt = TRUE;
 }

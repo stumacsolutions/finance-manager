@@ -30,7 +30,7 @@
       <tbody>
       <tr>
         <td nowrap="true" th:text="${#temporals.format(expenditure.date, 'E dd MMM yyyy')}"></td>
-        <td nowrap="true" th:text="${expenditure.category}"></td>
+        <td nowrap="true" th:text="${expenditure.category.displayName}"></td>
         <td nowrap="true" th:text="${expenditure.amount}"></td>
         <td nowrap="true" th:if="${expenditure.receipt}">Yes</td>
         <td nowrap="true" th:unless="${expenditure.receipt}">No</td>
