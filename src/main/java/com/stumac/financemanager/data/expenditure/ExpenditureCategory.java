@@ -12,6 +12,7 @@ public enum ExpenditureCategory {
     DIVIDEND("Dividend"),
     EMPLOYER_PAYE("PAYE for Employers"),
     HOME_OFFICE("Home Office"),
+    INSURANCE("Insurance"),
     MILEAGE("Mileage"),
     PENSION("Pension"),
     PHONE_BILL("Phone Bill"),
