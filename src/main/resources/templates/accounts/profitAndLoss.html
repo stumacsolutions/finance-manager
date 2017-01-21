@@ -1,0 +1,47 @@
+<html
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  xmlns:th="http://www.thymeleaf.org"
+  layout:decorator="layouts/main">
+<head>
+  <title>Profit &amp; Loss Account</title>
+</head>
+<body>
+<div layout:fragment="content">
+  <div class="page-header col-lg-offset-1 col-lg-10">
+    <h2>Profit &amp; Loss Account</h2>
+    <table class="table table-hover">
+      <tbody>
+      <tr>
+        <td>Sales</td>
+        <td th:text="${profitAndLoss.sales}"></td>
+      </tr>
+      <tr>
+        <td>Other Income</td>
+        <td th:text="${profitAndLoss.otherIncome}"></td>
+      </tr>
+      <tr>
+        <td>Turnover</td>
+        <td th:text="${profitAndLoss.turnover}"></td>
+      </tr>
+      <tr>
+        <td>Cost of Sales</td>
+        <td th:text="-${profitAndLoss.costOfSales}"></td>
+      </tr>
+      <tr>
+        <td><b><i>Gross Profit</i></b></td>
+        <td><b><i th:text="${profitAndLoss.grossProfit}"></i></b></td>
+      </tr>
+      <tr>
+        <td>Expenses</td>
+        <td th:text="-${profitAndLoss.expenses}"></td>
+      </tr>
+      <tr>
+        <td><b>Net Profit</b></td>
+        <td><b th:text="${profitAndLoss.netProfit}"></b></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</body>
+</html>

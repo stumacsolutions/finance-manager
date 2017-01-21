@@ -52,11 +52,11 @@ public abstract class UserDataServiceImpl<E extends UserDataEntity, D extends Us
             .collect(toList());
     }
 
-    private E map(D source) {
+    protected E map(D source) {
         return mapper.map(source, entityClass);
     }
 
-    private D map(E source) {
+    protected D map(E source) {
         return mapper.map(source, domainClass);
     }
 
