@@ -4,7 +4,10 @@ management:
   info:
     git:
       mode: full
+
 spring:
+  application:
+    name: finance-manager
   datasource:
     continue-on-error: true
     test-while-idle: true
