@@ -26,6 +26,7 @@ apply from: "$rootDir/gradle/packaging.gradle"
 apply from: "$rootDir/gradle/publishing.gradle"
 
 dependencies {
+  compile('com.fasterxml.jackson.datatype:jackson-datatype-jsr310')
   compile('net.sourceforge.html5valdialect:html5valdialect:2.1.2')
   compile('org.modelmapper:modelmapper:0.7.7')
   compile('org.projectlombok:lombok:1.16.10')
