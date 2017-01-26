@@ -8,7 +8,8 @@ import lombok.RequiredArgsConstructor;
 public enum IncomeSource {
 
     INTEREST("Interest"),
-    INVOICE("Invoice");
+    INVOICE("Invoice"),
+    SHARES("Shares");
 
     private final String displayName;
 

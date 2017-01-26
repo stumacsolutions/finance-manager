@@ -16,6 +16,7 @@ public enum ExpenditureCategory {
     MILEAGE("Mileage", true),
     PENSION("Pension", false),
     PHONE_BILL("Phone Bill", false),
+    REGISTRATION("Registration", false),
     SALARY("Salary", false),
     TRAIN_TICKET("Train Ticket", true),
     VAT("VAT", false);
