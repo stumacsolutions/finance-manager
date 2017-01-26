@@ -27,7 +27,7 @@ class ExpenditureServiceImpl extends UserDataServiceImpl<ExpenditureEntity, Expe
 
     @Override
     public Collection<Expenditure> listByCategories(List<ExpenditureCategory> categoryList) {
-        Iterable<ExpenditureEntity> entities = repository.findByCategoryIn(categoryList);
+        Iterable<ExpenditureEntity> entities = repository.findByUserAndCategoryIn(getCurrentUser(), categoryList);
         return stream(entities.spliterator(), false)
             .map(this::map)
             .collect(toList());

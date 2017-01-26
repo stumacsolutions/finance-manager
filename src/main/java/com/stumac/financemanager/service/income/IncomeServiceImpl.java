@@ -27,7 +27,7 @@ class IncomeServiceImpl extends UserDataServiceImpl<IncomeEntity, Income> implem
 
     @Override
     public Collection<Income> listBySources(List<IncomeSource> sourceList) {
-        Iterable<IncomeEntity> entities = repository.findBySourceIn(sourceList);
+        Iterable<IncomeEntity> entities = repository.findByUserAndSourceIn(getCurrentUser(), sourceList);
         return stream(entities.spliterator(), false)
             .map(this::map)
             .collect(toList());

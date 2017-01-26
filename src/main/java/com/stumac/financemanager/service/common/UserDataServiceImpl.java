@@ -52,6 +52,12 @@ public abstract class UserDataServiceImpl<E extends UserDataEntity, D extends Us
             .collect(toList());
     }
 
+    protected User getCurrentUser() {
+        SecurityContext context = SecurityContextHolder.getContext();
+        Authentication authentication = context.getAuthentication();
+        return (User) authentication.getPrincipal();
+    }
+
     protected E map(D source) {
         return mapper.map(source, entityClass);
     }
