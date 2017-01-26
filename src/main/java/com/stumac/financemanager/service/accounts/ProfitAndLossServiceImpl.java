@@ -34,30 +34,35 @@ class ProfitAndLossServiceImpl implements ProfitAndLossService {
     @Override
     public ProfitAndLoss generate() {
         BigDecimal sales = calculateSales();
-        BigDecimal otherIncome = calculateOtherIncome();
-        BigDecimal turnover = sales.add(otherIncome);
         BigDecimal costOfSales = calculateCostOfSales();
-        BigDecimal grossProfit = turnover.subtract(costOfSales);
+        BigDecimal grossProfit = sales.subtract(costOfSales);
+        BigDecimal otherIncome = calculateOtherIncome();
         BigDecimal expenses = calculateExpenses();
-        BigDecimal netProfit = grossProfit.subtract(expenses);
-        BigDecimal corporationTax = calculateCorporationTax(netProfit);
-        BigDecimal profitAfterTax = netProfit.subtract(corporationTax);
+        BigDecimal profitBeforeTax = grossProfit.add(otherIncome).subtract(expenses);
+        BigDecimal corporationTax = calculateCorporationTax(profitBeforeTax);
+        BigDecimal netProfit = profitBeforeTax.subtract(corporationTax);
         return ProfitAndLoss.builder()
             .sales(sales)
-            .otherIncome(otherIncome)
-            .turnover(turnover)
             .costOfSales(costOfSales)
             .grossProfit(grossProfit)
+            .otherIncome(otherIncome)
             .expenses(expenses)
-            .netProfit(netProfit)
+            .profitBeforeTax(profitBeforeTax)
             .corporationTax(corporationTax)
-            .profitAfterTax(profitAfterTax)
+            .netProfit(netProfit)
             .build();
     }
 
     private BigDecimal calculateSales() {
         return calculateCombinedIncome(singletonList(INVOICE))
             .divide(ONE.add(VAT_RATE), HALF_UP);
+    }
+
+    private BigDecimal calculateCostOfSales() {
+        return calculateCombinedExpenditure(
+            stream(ExpenditureCategory.values())
+                .filter(ExpenditureCategory::isCostOfSale)
+                .collect(toList()));
     }
 
     private BigDecimal calculateOtherIncome() {
@@ -85,13 +90,6 @@ class ProfitAndLossServiceImpl implements ProfitAndLossService {
             .reduce(ZERO, BigDecimal::add);
     }
 
-    private BigDecimal calculateCostOfSales() {
-        return calculateCombinedExpenditure(
-            stream(ExpenditureCategory.values())
-                .filter(ExpenditureCategory::isCostOfSale)
-                .collect(toList()));
-    }
-
     private BigDecimal calculateExpenses() {
         return calculateCombinedExpenditure(
             stream(ExpenditureCategory.values())
@@ -105,7 +103,7 @@ class ProfitAndLossServiceImpl implements ProfitAndLossService {
             .reduce(ZERO, BigDecimal::add);
     }
 
-    private BigDecimal calculateCorporationTax(BigDecimal netProfit) {
-        return netProfit.multiply(CORPORATION_TAX_RATE).setScale(2, HALF_UP);
+    private BigDecimal calculateCorporationTax(BigDecimal profitBeforeTax) {
+        return profitBeforeTax.multiply(CORPORATION_TAX_RATE).setScale(2, HALF_UP);
     }
 }

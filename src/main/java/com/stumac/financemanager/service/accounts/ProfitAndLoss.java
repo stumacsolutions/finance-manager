@@ -19,28 +19,22 @@ public class ProfitAndLoss {
     private BigDecimal sales;
 
     /**
-     * Other forms of income (e.g. bank interest)
-     */
-    @NumberFormat(style = CURRENCY)
-    private BigDecimal otherIncome;
-
-    /**
-     * Total sales plus other income.
-     */
-    @NumberFormat(style = CURRENCY)
-    private BigDecimal turnover;
-
-    /**
      * Costs incurred during delivery of services.
      */
     @NumberFormat(style = CURRENCY)
     private BigDecimal costOfSales;
 
     /**
-     * Turnover less cost of sales.
+     * Sales less cost of sales.
      */
     @NumberFormat(style = CURRENCY)
     private BigDecimal grossProfit;
+
+    /**
+     * Other forms of income (e.g. bank interest)
+     */
+    @NumberFormat(style = CURRENCY)
+    private BigDecimal otherIncome;
 
     /**
      * Day to day expenses incurred (e.g. salary, travel).
@@ -49,10 +43,10 @@ public class ProfitAndLoss {
     private BigDecimal expenses;
 
     /**
-     * Gross profit less expenses.
+     * Gross profit plus other income less expenses.
      */
     @NumberFormat(style = CURRENCY)
-    private BigDecimal netProfit;
+    private BigDecimal profitBeforeTax;
 
     /**
      * Tax paid on net profit at a rate of 20%.
@@ -61,8 +55,8 @@ public class ProfitAndLoss {
     private BigDecimal corporationTax;
 
     /**
-     * Remaining profit after tax has been paid.
+     * Profit before tax less corporation tax.
      */
     @NumberFormat(style = CURRENCY)
-    private BigDecimal profitAfterTax;
+    private BigDecimal netProfit;
 }

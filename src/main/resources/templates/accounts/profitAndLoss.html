@@ -16,36 +16,32 @@
         <td th:text="${profitAndLoss.sales}"></td>
       </tr>
       <tr>
-        <td>Other Income</td>
-        <td th:text="${profitAndLoss.otherIncome}"></td>
-      </tr>
-      <tr>
-        <td>Turnover</td>
-        <td th:text="${profitAndLoss.turnover}"></td>
-      </tr>
-      <tr>
         <td>Cost of Sales</td>
-        <td th:text="-${profitAndLoss.costOfSales}"></td>
+        <td th:text="${profitAndLoss.costOfSales}"></td>
       </tr>
       <tr>
         <td><b>Gross Profit</b></td>
         <td><b th:text="${profitAndLoss.grossProfit}"></b></td>
       </tr>
       <tr>
+        <td>Other Income</td>
+        <td th:text="${profitAndLoss.otherIncome}"></td>
+      </tr>
+      <tr>
         <td>Expenses</td>
-        <td th:text="-${profitAndLoss.expenses}"></td>
+        <td th:text="${profitAndLoss.expenses}"></td>
+      </tr>
+      <tr>
+        <td><b>Profit Before Tax</b></td>
+        <td><b th:text="${profitAndLoss.profitBeforeTax}"></b></td>
+      </tr>
+      <tr>
+        <td>Corporation Tax</td>
+        <td th:text="${profitAndLoss.corporationTax}"></td>
       </tr>
       <tr>
         <td><b>Net Profit</b></td>
         <td><b th:text="${profitAndLoss.netProfit}"></b></td>
-      </tr>
-      <tr>
-        <td>Corporation Tax</td>
-        <td th:text="-${profitAndLoss.corporationTax}"></td>
-      </tr>
-      <tr>
-        <td><b>Profit After Tax</b></td>
-        <td><b th:text="${profitAndLoss.profitAfterTax}"></b></td>
       </tr>
       </tbody>
     </table>
