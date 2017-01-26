@@ -53,4 +53,16 @@ public class ProfitAndLoss {
      */
     @NumberFormat(style = CURRENCY)
     private BigDecimal netProfit;
+
+    /**
+     * Tax paid on net profit at a rate of 20%.
+     */
+    @NumberFormat(style = CURRENCY)
+    private BigDecimal corporationTax;
+
+    /**
+     * Remaining profit after tax has been paid.
+     */
+    @NumberFormat(style = CURRENCY)
+    private BigDecimal profitAfterTax;
 }

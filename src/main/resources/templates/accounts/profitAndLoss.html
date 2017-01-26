@@ -28,8 +28,8 @@
         <td th:text="-${profitAndLoss.costOfSales}"></td>
       </tr>
       <tr>
-        <td><b><i>Gross Profit</i></b></td>
-        <td><b><i th:text="${profitAndLoss.grossProfit}"></i></b></td>
+        <td><b>Gross Profit</b></td>
+        <td><b th:text="${profitAndLoss.grossProfit}"></b></td>
       </tr>
       <tr>
         <td>Expenses</td>
@@ -38,6 +38,14 @@
       <tr>
         <td><b>Net Profit</b></td>
         <td><b th:text="${profitAndLoss.netProfit}"></b></td>
+      </tr>
+      <tr>
+        <td>Corporation Tax</td>
+        <td th:text="-${profitAndLoss.corporationTax}"></td>
+      </tr>
+      <tr>
+        <td><b>Profit After Tax</b></td>
+        <td><b th:text="${profitAndLoss.profitAfterTax}"></b></td>
       </tr>
       </tbody>
     </table>

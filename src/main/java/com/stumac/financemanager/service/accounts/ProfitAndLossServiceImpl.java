@@ -24,6 +24,7 @@ import static java.util.stream.Collectors.toList;
 @RequiredArgsConstructor
 class ProfitAndLossServiceImpl implements ProfitAndLossService {
 
+    private static final BigDecimal CORPORATION_TAX_RATE = BigDecimal.valueOf(0.20);
     private static final BigDecimal FLAT_VAT_RATE = BigDecimal.valueOf(0.135);
     private static final BigDecimal VAT_RATE = BigDecimal.valueOf(0.20);
 
@@ -39,6 +40,8 @@ class ProfitAndLossServiceImpl implements ProfitAndLossService {
         BigDecimal grossProfit = turnover.subtract(costOfSales);
         BigDecimal expenses = calculateExpenses();
         BigDecimal netProfit = grossProfit.subtract(expenses);
+        BigDecimal corporationTax = calculateCorporationTax(netProfit);
+        BigDecimal profitAfterTax = netProfit.subtract(corporationTax);
         return ProfitAndLoss.builder()
             .sales(sales)
             .otherIncome(otherIncome)
@@ -47,6 +50,8 @@ class ProfitAndLossServiceImpl implements ProfitAndLossService {
             .grossProfit(grossProfit)
             .expenses(expenses)
             .netProfit(netProfit)
+            .corporationTax(corporationTax)
+            .profitAfterTax(profitAfterTax)
             .build();
     }
 
@@ -59,19 +64,19 @@ class ProfitAndLossServiceImpl implements ProfitAndLossService {
         return calculateNonInvoiceIncome().add(calculateFlatRateProfit());
     }
 
+    private BigDecimal calculateNonInvoiceIncome() {
+        return calculateCombinedIncome(
+            stream(IncomeSource.values())
+                .filter(source -> source != INVOICE)
+                .collect(toList()));
+    }
+
     private BigDecimal calculateFlatRateProfit() {
         BigDecimal invoiceIncome = calculateCombinedIncome(singletonList(INVOICE));
         return invoiceIncome
             .subtract(invoiceIncome.multiply(FLAT_VAT_RATE))
             .subtract(calculateSales())
             .setScale(2, HALF_UP);
-    }
-
-    private BigDecimal calculateNonInvoiceIncome() {
-        return calculateCombinedIncome(
-            stream(IncomeSource.values())
-                .filter(source -> source != INVOICE)
-                .collect(toList()));
     }
 
     private BigDecimal calculateCombinedIncome(List<IncomeSource> sources) {
@@ -98,5 +103,9 @@ class ProfitAndLossServiceImpl implements ProfitAndLossService {
         return expenditureService.listByCategories(categories).stream()
             .map(Expenditure::getAmount)
             .reduce(ZERO, BigDecimal::add);
+    }
+
+    private BigDecimal calculateCorporationTax(BigDecimal netProfit) {
+        return netProfit.multiply(CORPORATION_TAX_RATE).setScale(2, HALF_UP);
     }
 }
