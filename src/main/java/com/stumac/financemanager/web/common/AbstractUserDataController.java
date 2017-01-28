@@ -36,6 +36,14 @@ public abstract class AbstractUserDataController<D extends UserData> {
         return format("%s/edit", getType());
     }
 
+    @GetMapping(path = "/copy/{id}")
+    public String copy(@PathVariable(name = "id") long id, Model model) {
+        D userData = getUserData(id);
+        userData.setId(null);
+        model.addAttribute(getType(), userData);
+        return format("%s/edit", getType());
+    }
+
     @GetMapping(path = "/edit/{id}")
     public String edit(@PathVariable(name = "id") long id, Model model) {
         model.addAttribute(getType(), getUserData(id));

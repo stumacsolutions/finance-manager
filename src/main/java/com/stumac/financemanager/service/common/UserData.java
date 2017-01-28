@@ -19,7 +19,7 @@ import static org.springframework.format.annotation.DateTimeFormat.ISO.DATE;
 @Setter
 public abstract class UserData {
 
-    private long id;
+    private Long id;
 
     @Size(max = 250)
     private String comments;

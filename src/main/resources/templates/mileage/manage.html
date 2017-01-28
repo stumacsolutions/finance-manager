@@ -34,7 +34,8 @@
         <td th:text="${mileage.comments}"></td>
         <td nowrap="true">
           <div class="btn-toolbar" role="toolbar">
-            <a th:href="@{/mileage/edit/__${mileage.id}__}" class="btn btn-success btn-xs">Edit</a>
+            <a th:href="@{/mileage/copy/__${mileage.id}__}" class="btn btn-primary btn-xs">Copy</a>
+            <a th:href="@{/mileage/edit/__${mileage.id}__}" class="btn btn-warning btn-xs">Edit</a>
             <a th:href="@{/mileage/delete/__${mileage.id}__}" class="btn btn-danger btn-xs">Delete</a>
           </div>
         </td>

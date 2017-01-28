@@ -32,7 +32,8 @@
         <td th:text="${income.comments}"></td>
         <td nowrap="true">
           <div class="btn-toolbar" role="toolbar">
-            <a th:href="@{/income/edit/__${income.id}__}" class="btn btn-success btn-xs">Edit</a>
+            <a th:href="@{/income/copy/__${income.id}__}" class="btn btn-primary btn-xs">Copy</a>
+            <a th:href="@{/income/edit/__${income.id}__}" class="btn btn-warning btn-xs">Edit</a>
             <a th:href="@{/income/delete/__${income.id}__}" class="btn btn-danger btn-xs">Delete</a>
           </div>
         </td>
