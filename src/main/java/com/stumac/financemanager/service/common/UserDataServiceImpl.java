@@ -46,7 +46,7 @@ public abstract class UserDataServiceImpl<E extends UserDataEntity, D extends Us
 
     @Override
     public List<D> listAll() {
-        Iterable<E> data = repository.findAllByUser(getUser());
+        Iterable<E> data = repository.findAllByUserOrderByDateAsc(getUser());
         return stream(data.spliterator(), false)
             .map(this::map)
             .collect(toList());

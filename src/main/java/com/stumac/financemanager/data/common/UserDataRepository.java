@@ -9,7 +9,7 @@ import java.util.Optional;
 @NoRepositoryBean
 public interface UserDataRepository<E extends UserDataEntity> extends PagingAndSortingRepository<E, Long> {
 
-    Iterable<E> findAllByUser(User user);
+    Iterable<E> findAllByUserOrderByDateAsc(User user);
 
     Optional<E> findOneByIdAndUser(long id, User user);
 }
