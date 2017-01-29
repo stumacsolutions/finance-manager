@@ -23,6 +23,9 @@
         <li th:class="${navigationSection == 'profit-and-loss' ? 'active' : ''}"><a
           th:href="@{/profit-and-loss}">Profit &amp; Loss</a>
         </li>
+        <li th:class="${navigationSection == 'dividend' ? 'active' : ''}"><a
+          th:href="@{/dividend}">Dividends</a>
+        </li>
       </ul>
       <a class="btn btn-default navbar-btn navbar-right" sec:authorize="!hasRole('ROLE_USER')" th:href="@{/login}"
          role="button">Login
