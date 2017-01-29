@@ -9,7 +9,6 @@ public enum ExpenditureCategory {
 
     BOOKS("Books", true),
     CORPORATION_TAX("Corporation Tax", false),
-    DIVIDEND("Dividend", false),
     EMPLOYER_PAYE("PAYE for Employers", false),
     HOME_OFFICE("Home Office", false),
     INSURANCE("Insurance", false),
