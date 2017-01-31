@@ -29,10 +29,12 @@ class ApiController extends AbstractRestController {
         resource.add(
             linkTo(methodOn(MileageRestController.class).listAll())
                 .withRel("mileage"));
-        resource.add(
+        resource.add(getSelfLink());resource.add(
             linkTo(methodOn(ProfitAndLossRestController.class).generate())
                 .withRel("profit-and-loss"));
-        resource.add(getSelfLink());
+        resource.add(
+            linkTo(methodOn(VatRestController.class).listAll())
+                .withRel("vat"));
         return ok(resource);
     }
 }
