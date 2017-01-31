@@ -1,0 +1,30 @@
+<html
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:val="http://sourceforge.net/projects/html5valdialect"
+  layout:decorator="layouts/main">
+<head>
+  <title>Profile</title>
+</head>
+<body>
+<div layout:fragment="content">
+  <div class="page-header col-lg-offset-1 col-lg-10">
+    <h2>Profile</h2>
+  </div>
+  <form autocomplete="off" novalidate="novalidate"
+        class="col-lg-offset-1 col-lg-10 well"
+        data-disable="false" data-toggle="validator"
+        method="post" th:action="@{/user/profile/save}"
+        th:object="${userProfile}" val:validate="${userProfile}">
+    <div class="panel-heading">
+      <p>Edit your userProfile details below.</p>
+    </div>
+    <fieldset>
+      <input type="hidden" th:field="*{id}"/>
+      <th:block th:include="fragments/input" th:with="name='yearEnd',label='Year End',type='date'"/>
+      <th:block th:include="fragments/submit"/>
+    </fieldset>
+  </form>
+</div>
+</body>
+</html>

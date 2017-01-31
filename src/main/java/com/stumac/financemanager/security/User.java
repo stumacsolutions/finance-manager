@@ -5,6 +5,9 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContext;
+import org.springframework.security.core.context.SecurityContextHolder;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -36,6 +39,12 @@ public class User implements Serializable {
 
     @Column(name = "username", nullable = false)
     private String username;
+
+    public static User getCurrentUser() {
+        SecurityContext context = SecurityContextHolder.getContext();
+        Authentication authentication = context.getAuthentication();
+        return (User) authentication.getPrincipal();
+    }
 
     @Override
     public String toString() {

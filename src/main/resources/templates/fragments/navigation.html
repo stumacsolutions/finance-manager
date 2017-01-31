@@ -43,6 +43,9 @@
           <ul class="dropdown-menu">
             <li class="dropdown-header" th:text="${#authentication.principal.username}">the_username</li>
             <li>
+              <form th:action="@{/user/profile/edit}" method="get">
+                <button type="submit" class="btn btn-link">Profile</button>
+              </form>
               <form th:action="@{/logout}" method="post" role="logout">
                 <button type="submit" class="btn btn-link">Logout</button>
               </form>
