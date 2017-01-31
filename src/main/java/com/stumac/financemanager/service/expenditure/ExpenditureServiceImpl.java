@@ -3,7 +3,7 @@ package com.stumac.financemanager.service.expenditure;
 import com.stumac.financemanager.data.expenditure.ExpenditureCategory;
 import com.stumac.financemanager.data.expenditure.ExpenditureEntity;
 import com.stumac.financemanager.data.expenditure.ExpenditureRepository;
-import com.stumac.financemanager.service.common.UserDataServiceImpl;
+import com.stumac.financemanager.service.common.AbstractUserDataServiceImpl;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -15,7 +15,7 @@ import static java.util.stream.Collectors.toList;
 import static java.util.stream.StreamSupport.stream;
 
 @Component
-class ExpenditureServiceImpl extends UserDataServiceImpl<ExpenditureEntity, Expenditure> implements ExpenditureService {
+class ExpenditureServiceImpl extends AbstractUserDataServiceImpl<ExpenditureEntity, Expenditure> implements ExpenditureService {
 
     private final ExpenditureRepository repository;
 

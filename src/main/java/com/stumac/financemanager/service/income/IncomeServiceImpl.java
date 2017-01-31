@@ -3,7 +3,7 @@ package com.stumac.financemanager.service.income;
 import com.stumac.financemanager.data.income.IncomeEntity;
 import com.stumac.financemanager.data.income.IncomeRepository;
 import com.stumac.financemanager.data.income.IncomeSource;
-import com.stumac.financemanager.service.common.UserDataServiceImpl;
+import com.stumac.financemanager.service.common.AbstractUserDataServiceImpl;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -15,7 +15,7 @@ import static java.util.stream.Collectors.toList;
 import static java.util.stream.StreamSupport.stream;
 
 @Component
-class IncomeServiceImpl extends UserDataServiceImpl<IncomeEntity, Income> implements IncomeService {
+class IncomeServiceImpl extends AbstractUserDataServiceImpl<IncomeEntity, Income> implements IncomeService {
 
     private final IncomeRepository repository;
 

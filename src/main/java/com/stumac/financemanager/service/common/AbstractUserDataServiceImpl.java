@@ -16,7 +16,7 @@ import static java.util.stream.Collectors.toList;
 import static java.util.stream.StreamSupport.stream;
 
 @RequiredArgsConstructor
-public abstract class UserDataServiceImpl<E extends UserDataEntity, D extends UserData>
+public abstract class AbstractUserDataServiceImpl<E extends UserDataEntity, D extends UserData>
     implements UserDataService<D> {
 
     private final ModelMapper mapper;
