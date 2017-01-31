@@ -27,7 +27,7 @@ public abstract class UserDataServiceImpl<E extends UserDataEntity, D extends Us
     @Override
     public void add(D data) {
         E entity = map(data);
-        entity.setUser(getUser());
+        entity.setUser(getCurrentUser());
         repository.save(entity);
     }
 
@@ -38,7 +38,7 @@ public abstract class UserDataServiceImpl<E extends UserDataEntity, D extends Us
 
     @Override
     public Optional<D> get(long id) {
-        Optional<E> maybeEntity = repository.findOneByIdAndUser(id, getUser());
+        Optional<E> maybeEntity = repository.findOneByIdAndUser(id, getCurrentUser());
         return maybeEntity.isPresent() ?
             Optional.of(map(maybeEntity.get())) :
             Optional.empty();
@@ -46,7 +46,7 @@ public abstract class UserDataServiceImpl<E extends UserDataEntity, D extends Us
 
     @Override
     public List<D> listAll() {
-        Iterable<E> data = repository.findAllByUserOrderByDateAsc(getUser());
+        Iterable<E> data = repository.findAllByUserOrderByDateAsc(getCurrentUser());
         return stream(data.spliterator(), false)
             .map(this::map)
             .collect(toList());
@@ -64,12 +64,5 @@ public abstract class UserDataServiceImpl<E extends UserDataEntity, D extends Us
 
     protected D map(E source) {
         return mapper.map(source, domainClass);
-    }
-
-    private User getUser() {
-        SecurityContext context = SecurityContextHolder.getContext();
-        Authentication authentication = context.getAuthentication();
-        Object principal = authentication.getPrincipal();
-        return (User) principal;
     }
 }
