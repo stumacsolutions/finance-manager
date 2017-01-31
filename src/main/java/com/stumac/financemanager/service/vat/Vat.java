@@ -1,4 +1,4 @@
-package com.stumac.financemanager.service.vat.dividend;
+package com.stumac.financemanager.service.vat;
 
 import com.stumac.financemanager.service.common.UserData;
 import lombok.Getter;

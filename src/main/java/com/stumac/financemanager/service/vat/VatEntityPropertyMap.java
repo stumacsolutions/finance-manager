@@ -1,4 +1,4 @@
-package com.stumac.financemanager.service.vat.dividend;
+package com.stumac.financemanager.service.vat;
 
 import com.stumac.financemanager.data.vat.VatEntity;
 import com.stumac.financemanager.mapping.converters.PenceToPoundsConverter;
