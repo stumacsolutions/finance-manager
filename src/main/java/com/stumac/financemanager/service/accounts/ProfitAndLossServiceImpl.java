@@ -26,7 +26,6 @@ class ProfitAndLossServiceImpl implements ProfitAndLossService {
 
     private static final BigDecimal CORPORATION_TAX_RATE = BigDecimal.valueOf(0.20);
     private static final BigDecimal FLAT_VAT_RATE = BigDecimal.valueOf(0.135);
-    private static final BigDecimal VAT_RATE = BigDecimal.valueOf(0.20);
 
     private final ExpenditureService expenditureService;
     private final IncomeService incomeService;
