@@ -14,65 +14,72 @@
   </div>
   <div class="col-lg-offset-1 col-lg-10">
     <table class="table table-hover">
+      <thead>
+       <tr>
+         <td></td>
+         <td><b>Box Number</b></td>
+         <td><b>Amount</b></td>
+       </tr>
+      </thead>
       <tbody>
       <tr>
         <td>Turnover</td>
-        <td>Box AC12</td>
+        <td>AC12</td>
         <td th:text="${profitAndLoss.turnover}"></td>
       </tr>
       <tr th:if="${profitAndLoss.costOfSales} > 0">
         <td>Cost of sales</td>
-        <td>Box AC14</td>
+        <td>AC14</td>
         <td th:text="${profitAndLoss.costOfSales}"></td>
       </tr>
       <tr>
         <td>Gross profit or (loss)</td>
-        <td>Box AC16</td>
+        <td>AC16</td>
         <td th:text="${profitAndLoss.grossProfit}"></td>
       </tr>
       <tr th:if="${profitAndLoss.distributionCosts} > 0">
         <td>Distribution costs</td>
-        <td>Box AC18</td>
+        <td>AC18</td>
         <td th:text="${profitAndLoss.distributionCosts}"></td>
       </tr>
       <tr th:if="${profitAndLoss.administrativeExpenses} > 0">
         <td>Administrative expenses</td>
-        <td>Box AC20</td>
+        <td>AC20</td>
         <td th:text="${profitAndLoss.administrativeExpenses}"></td>
       </tr>
       <tr th:if="${profitAndLoss.otherOperatingIncome} > 0">
         <td>Other operating income</td>
-        <td>Box AC22</td>
+        <td>AC22</td>
         <td th:text="${profitAndLoss.otherOperatingIncome}"></td>
       </tr>
       <tr>
         <td>Operating profit or (loss)</td>
-        <td>Box AC26</td>
+        <td>AC26</td>
         <td th:text="${profitAndLoss.operatingProfit}"></td>
       </tr>
       <tr th:if="${profitAndLoss.interestReceivable} > 0">
         <td>Interest receivable and similar income</td>
-        <td>Box AC28</td>
+        <td>AC28</td>
         <td th:text="${profitAndLoss.interestReceivable}"></td>
       </tr>
       <tr th:if="${profitAndLoss.interestPayable} > 0">
         <td>Interest receivable and similar charges</td>
-        <td>Box AC30</td>
+        <td>AC30</td>
         <td th:text="${profitAndLoss.interestPayable}"></td>
       </tr>
       <tr>
         <td>Profit or (loss) before tax</td>
-        <td>Box AC32</td>
+        <td>AC32</td>
         <td th:text="${profitAndLoss.profitBeforeTax}"></td>
       </tr>
       <tr>
         <td>Tax on profit</td>
-        <td>Box AC34</td>
+        <td>AC34</td>
         <td th:text="${profitAndLoss.taxOnProfit}"></td>
       </tr>
       <tr>
         <td>Profit or (loss) for the financial year</td>
-        <td>Box AC36</td>
+        <td>AC36</td>
         <td th:text="${profitAndLoss.profit}"></td>
       </tr>
       </tbody>
