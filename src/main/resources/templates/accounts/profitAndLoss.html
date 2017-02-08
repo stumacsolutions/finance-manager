@@ -16,36 +16,64 @@
     <table class="table table-hover">
       <tbody>
       <tr>
-        <td>Sales</td>
-        <td th:text="${profitAndLoss.sales}"></td>
+        <td>Turnover</td>
+        <td>Box AC12</td>
+        <td th:text="${profitAndLoss.turnover}"></td>
       </tr>
-      <tr>
-        <td>Cost of Sales</td>
+      <tr th:if="${profitAndLoss.costOfSales} > 0">
+        <td>Cost of sales</td>
+        <td>Box AC14</td>
         <td th:text="${profitAndLoss.costOfSales}"></td>
       </tr>
       <tr>
-        <td><b>Gross Profit</b></td>
-        <td><b th:text="${profitAndLoss.grossProfit}"></b></td>
+        <td>Gross profit or (loss)</td>
+        <td>Box AC16</td>
+        <td th:text="${profitAndLoss.grossProfit}"></td>
+      </tr>
+      <tr th:if="${profitAndLoss.distributionCosts} > 0">
+        <td>Distribution costs</td>
+        <td>Box AC18</td>
+        <td th:text="${profitAndLoss.distributionCosts}"></td>
+      </tr>
+      <tr th:if="${profitAndLoss.administrativeExpenses} > 0">
+        <td>Administrative expenses</td>
+        <td>Box AC20</td>
+        <td th:text="${profitAndLoss.administrativeExpenses}"></td>
+      </tr>
+      <tr th:if="${profitAndLoss.otherOperatingIncome} > 0">
+        <td>Other operating income</td>
+        <td>Box AC22</td>
+        <td th:text="${profitAndLoss.otherOperatingIncome}"></td>
       </tr>
       <tr>
-        <td>Other Income</td>
-        <td th:text="${profitAndLoss.otherIncome}"></td>
+        <td>Operating profit or (loss)</td>
+        <td>Box AC26</td>
+        <td th:text="${profitAndLoss.operatingProfit}"></td>
+      </tr>
+      <tr th:if="${profitAndLoss.interestReceivable} > 0">
+        <td>Interest receivable and similar income</td>
+        <td>Box AC28</td>
+        <td th:text="${profitAndLoss.interestReceivable}"></td>
+      </tr>
+      <tr th:if="${profitAndLoss.interestPayable} > 0">
+        <td>Interest receivable and similar charges</td>
+        <td>Box AC30</td>
+        <td th:text="${profitAndLoss.interestPayable}"></td>
       </tr>
       <tr>
-        <td>Expenses</td>
-        <td th:text="${profitAndLoss.expenses}"></td>
+        <td>Profit or (loss) before tax</td>
+        <td>Box AC32</td>
+        <td th:text="${profitAndLoss.profitBeforeTax}"></td>
       </tr>
       <tr>
-        <td><b>Profit Before Tax</b></td>
-        <td><b th:text="${profitAndLoss.profitBeforeTax}"></b></td>
+        <td>Tax on profit</td>
+        <td>Box AC34</td>
+        <td th:text="${profitAndLoss.taxOnProfit}"></td>
       </tr>
       <tr>
-        <td>Corporation Tax</td>
-        <td th:text="${profitAndLoss.corporationTax}"></td>
-      </tr>
-      <tr>
-        <td><b>Net Profit</b></td>
-        <td><b th:text="${profitAndLoss.netProfit}"></b></td>
+        <td>Profit or (loss) for the financial year</td>
+        <td>Box AC36</td>
+        <td th:text="${profitAndLoss.profit}"></td>
       </tr>
       </tbody>
     </table>

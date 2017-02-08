@@ -12,16 +12,16 @@ public enum ExpenditureCategory {
     EMPLOYER_PAYE("PAYE for Employers", false),
     HOME_OFFICE("Home Office", false),
     INSURANCE("Insurance", false),
-    MILEAGE("Mileage", true),
+    MILEAGE("Mileage", false),
     PENSION("Pension", false),
     PHONE_BILL("Phone Bill", false),
     REGISTRATION("Registration", false),
     SALARY("Salary", false),
-    TRAIN_TICKET("Train Ticket", true),
+    TRAIN_TICKET("Train Ticket", false),
     VAT("VAT", false);
 
     private final String displayName;
-    private final boolean isCostOfSale;
+    private final boolean costOfSale;
 
     public String getId() {
         return name();
