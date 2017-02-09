@@ -18,12 +18,11 @@
       <span th:text="${successMessage}"></span>
     </div>
   </div>
-  <div layout:fragment="content">
-    <h1>Example content</h1>
-  </div>
+  <th:block layout:fragment="content"/>
 </div>
 <script type="text/javascript" th:src="@{/webjars/jquery/jquery.min.js}"></script>
 <script type="text/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
 <script type="text/javascript" th:src="@{/webjars/bootstrap-validator/0.11.5/dist/validator.min.js}"></script>
+<th:block layout:fragment="javascript"/>
 </body>
 </html>
