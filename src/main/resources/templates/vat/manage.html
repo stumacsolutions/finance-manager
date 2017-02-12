@@ -17,7 +17,7 @@
     <div class="btn-group pull-right" role="group">
       <a class="btn btn-primary" th:href="@{/vat/add}">Add</a>
     </div>
-    <table id="vat" class="table table-hover table-responsive dataTable">
+    <table id="table-vat" class="table table-hover table-responsive dataTable">
       <thead>
       <tr>
         <th>Date</th>
@@ -47,7 +47,7 @@
   <script type="text/javascript" src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
   <script>
 $(document).ready(function(){
-  $('#vat').DataTable({
+  $('#table-vat').DataTable({
     dom: 'tip', ordering: false, pageLength: 50,
     language: {
       emptyTable: 'No VAT has been recorded.'

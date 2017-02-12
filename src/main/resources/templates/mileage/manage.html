@@ -17,7 +17,7 @@
     <div class="btn-group pull-right" role="group">
       <a class="btn btn-primary" th:href="@{/mileage/add}">Add</a>
     </div>
-    <table id="mileage" class="table table-hover table-responsive dataTable">
+    <table id="table-mileage" class="table table-hover table-responsive dataTable">
       <thead>
       <tr>
         <th>Date</th>
@@ -51,7 +51,7 @@
   <script type="text/javascript" src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
   <script>
 $(document).ready(function(){
-  $('#mileage').DataTable({
+  $('#table-mileage').DataTable({
     dom: 'tip', ordering: false, pageLength: 50,
     language: {
       emptyTable: 'No mileage has been recorded.'

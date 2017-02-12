@@ -17,7 +17,7 @@
     <div class="pull-right" role="group">
       <a class="btn btn-primary" th:href="@{/expenditure/add}">Add</a>
     </div>
-    <table id="expenditure" class="table table-hover table-responsive dataTable">
+    <table id="table-expenditure" class="table table-hover table-responsive dataTable">
       <thead>
       <tr>
         <th>Date</th>
@@ -52,7 +52,7 @@
   <script type="text/javascript" src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
   <script>
 $(document).ready(function(){
-  $('#expenditure').DataTable({
+  $('#table-expenditure').DataTable({
     dom: 'tip', ordering: false, pageLength: 50,
     language: {
       emptyTable: 'No expenditure has been recorded.'
