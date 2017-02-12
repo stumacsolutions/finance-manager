@@ -2,9 +2,9 @@ machine:
   services:
     - docker
 
-dependencies:
-  override:
-    - ./gradlew resolveConfigurations
+#dependencies:
+#  override:
+#    - ./gradlew resolveConfigurations
 
 test:
   override:
