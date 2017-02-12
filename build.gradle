@@ -9,8 +9,8 @@ buildscript {
     classpath('gradle.plugin.com.gorylenko.gradle-git-properties:gradle-git-properties:1.4.17')
     classpath('gradle.plugin.com.palantir.configurationresolver:gradle-configuration-resolver-plugin:0.2.0')
     classpath('info.solidsoft.gradle.pitest:gradle-pitest-plugin:1.1.10')
-    classpath('io.spring.gradle:dependency-management-plugin:0.6.1.RELEASE')
-    classpath('org.springframework.boot:spring-boot-gradle-plugin:1.4.3.RELEASE')
+    classpath('io.spring.gradle:dependency-management-plugin:1.0.0.RELEASE')
+    classpath('org.springframework.boot:spring-boot-gradle-plugin:1.5.1.RELEASE')
 
   }
 }
