@@ -1,0 +1,9 @@
+machine:
+  services:
+    - docker
+
+test:
+  override:
+    - ./gradlew test
+    - ./gradlew acceptanceTest
+    - ./gradlew mutationTest
