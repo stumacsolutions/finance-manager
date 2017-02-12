@@ -7,3 +7,9 @@ test:
     - ./gradlew test
     - ./gradlew acceptanceTest
     - ./gradlew mutationTest
+
+deployment:
+  master:
+    branch: master
+    commands:
+      - ./gradlew publishContainer
