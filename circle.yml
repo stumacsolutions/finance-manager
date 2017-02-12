@@ -4,7 +4,7 @@ machine:
 
 dependencies:
   override:
-    ./gradlew resolveConfigurations
+    - ./gradlew resolveConfigurations
 
 test:
   override:
