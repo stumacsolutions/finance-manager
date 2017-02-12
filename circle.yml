@@ -8,10 +8,13 @@ dependencies:
 
 test:
   override:
-    - ./gradlew test mutationTest acceptanceTest
+    - ./gradlew build mutationTest acceptanceTest
+  post:
+    - docker build --rm=false -t stumacsolutions/finance-manager .
 
 deployment:
   master:
     branch: master
     commands:
-      - ./gradlew publishContainer
+      - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
+      - docker push stumacsolutions/finance-manager
