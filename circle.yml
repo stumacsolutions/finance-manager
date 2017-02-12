@@ -8,9 +8,7 @@ dependencies:
 
 test:
   override:
-    - ./gradlew test
-    - ./gradlew acceptanceTest
-    - ./gradlew mutationTest
+    - ./gradlew test mutationTest acceptanceTest
 
 deployment:
   master:
