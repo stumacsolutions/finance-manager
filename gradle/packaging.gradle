@@ -10,11 +10,3 @@ jar {
 springBoot {
   buildInfo()
 }
-
-task assembleContainer(dependsOn: assemble) {
-  doLast {
-    exec {
-      commandLine 'docker', 'build', '-t', 'stumacsolutions/finance-manager', '.'
-    }
-  }
-}

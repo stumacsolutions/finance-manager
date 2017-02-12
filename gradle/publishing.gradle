@@ -1,16 +1,5 @@
 apply plugin: 'maven-publish'
 
-task publishContainer(dependsOn: assembleContainer) {
-  doLast {
-    exec {
-      commandLine 'docker', 'login', '-e', System.getenv('DOCKER_EMAIL'), '-u', System.getenv('DOCKER_USER'), '-p', System.getenv('DOCKER_PASS')
-    }
-    exec {
-      commandLine 'docker', 'push', 'stumacsolutions/finance-manager'
-    }
-  }
-}
-
 task publishTag() {
   doLast {
     exec {
