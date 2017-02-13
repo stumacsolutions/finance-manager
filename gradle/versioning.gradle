@@ -1,4 +1,4 @@
-version = new ProjectVersion(1, 0, System.env.SNAP_PIPELINE_COUNTER)
+version = new ProjectVersion(1, 0, System.env.CIRCLE_BUILD_NUM)
 
 class ProjectVersion {
 

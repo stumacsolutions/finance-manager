@@ -3,10 +3,10 @@ apply plugin: 'maven-publish'
 task publishTag() {
   doLast {
     exec {
-      commandLine 'git', 'tag', '-a', System.getenv('SNAP_PIPELINE_COUNTER'), '-m', '"Publishing git tag."'
+      commandLine 'git', 'tag', '-a', System.getenv('CIRCLE_BUILD_NUM'), '-m', '"Publishing git tag."'
     }
     exec {
-      commandLine 'git', 'push', 'origin', System.getenv('SNAP_PIPELINE_COUNTER')
+      commandLine 'git', 'push', 'origin', System.getenv('CIRCLE_BUILD_NUM')
     }
   }
 }
