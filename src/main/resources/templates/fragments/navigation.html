@@ -13,21 +13,23 @@
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-        <li th:class="${navigationSection == 'home' ? 'active' : ''}"><a th:href="@{/}">Home</a></li>
-        <li th:class="${navigationSection == 'income' ? 'active' : ''}"><a
-          th:href="@{/income}">Income</a>
+        <li th:class="${navigationSection == 'home' ? 'active' : ''}">
+          <a th:href="@{/}">Home</a>
         </li>
-        <li th:class="${navigationSection == 'expenditure' ? 'active' : ''}"><a
-          th:href="@{/expenditure}">Expenditure</a>
+        <li th:class="${navigationSection == 'income' ? 'active' : ''}">
+          <a th:href="@{/income}">Income</a>
+        </li>
+        <li th:class="${navigationSection == 'expenditure' ? 'active' : ''}">
+          <a th:href="@{/expenditure}">Expenditure</a>
         </li>
         <li th:class="${navigationSection == 'dividend' ? 'active' : ''}"><a
           th:href="@{/dividend}">Dividends</a>
         </li>
-        <li th:class="${navigationSection == 'vat' ? 'active' : ''}"><a
-          th:href="@{/vat}">VAT</a>
+        <li th:class="${navigationSection == 'vat' ? 'active' : ''}">
+          <a th:href="@{/vat}">VAT</a>
         </li>
-        <li th:class="${navigationSection == 'profit-and-loss' ? 'active' : ''}"><a
-          th:href="@{/profit-and-loss}">Profit &amp; Loss</a>
+        <li th:class="${navigationSection == 'profit-and-loss' ? 'active' : ''}">
+          <a th:href="@{/profit-and-loss}">Profit &amp; Loss</a>
         </li>
       </ul>
       <a class="btn btn-default navbar-btn navbar-right" sec:authorize="!hasRole('ROLE_USER')" th:href="@{/login}"
@@ -54,8 +56,8 @@
         </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li sec:authorize="hasRole('ROLE_ADMIN')" th:class="${navigationSection == 'admin' ? 'active' : ''}"><a
-          th:href="@{/admin}">Admin</a></li>
+        <li sec:authorize="hasRole('ROLE_ADMIN')" th:class="${navigationSection == 'admin' ? 'active' : ''}">
+          <a th:href="@{/admin}">Admin</a></li>
       </ul>
     </div>
   </div>
