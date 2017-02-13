@@ -24,7 +24,7 @@ class ExtractorConfig {
         return map -> {
             String username = extract("username", map);
             return config.getSecurity().getAdmins().contains(username) ?
-                commaSeparatedStringToAuthorityList("ROLE_USER,ROLE_ADMIN") :
+                commaSeparatedStringToAuthorityList("ROLE_USER,ROLE_ADMIN,ROLE_ACTUATOR") :
                 commaSeparatedStringToAuthorityList("ROLE_USER");
         };
     }
