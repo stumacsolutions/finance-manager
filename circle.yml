@@ -11,6 +11,7 @@ test:
     - ./gradlew build mutationTest acceptanceTest
   post:
     - mv build/reports/** $CIRCLE_ARTIFACTS
+    - mv build/test-results/** $CIRCLE_TEST_REPORTS
 
 deployment:
   master:
