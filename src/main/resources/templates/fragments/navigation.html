@@ -1,4 +1,8 @@
-<html xmlns:sec="http://www.thymeleaf.org/extras/spring-security" xmlns:th="http://www.thymeleaf.org">
+<html
+  xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:togglz="https://github.com/heneke/thymeleaf-extras-togglz"
+>
 <nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -23,10 +27,10 @@
         <li th:class="${navigationSection == 'expenditure' ? 'active' : ''}">
           <a th:href="@{/expenditure}">Expenditure</a>
         </li>
-        <li th:class="${navigationSection == 'dividend' ? 'active' : ''}"><a
+        <li togglz:active="DIVIDENDS" th:class="${navigationSection == 'dividend' ? 'active' : ''}"><a
           th:href="@{/dividend}">Dividends</a>
         </li>
-        <li th:class="${navigationSection == 'vat' ? 'active' : ''}">
+        <li togglz:active="VAT" th:class="${navigationSection == 'vat' ? 'active' : ''}">
           <a th:href="@{/vat}">VAT</a>
         </li>
         <li th:class="${navigationSection == 'profit-and-loss' ? 'active' : ''}">
