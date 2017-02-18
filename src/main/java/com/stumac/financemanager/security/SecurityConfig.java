@@ -1,7 +1,7 @@
 package com.stumac.financemanager.security;
 
 import com.stumac.financemanager.ApplicationConfig;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.boot.autoconfigure.security.oauth2.client.EnableOAuth2Sso;
 import org.springframework.boot.autoconfigure.security.oauth2.resource.AuthoritiesExtractor;
 import org.springframework.boot.autoconfigure.security.oauth2.resource.PrincipalExtractor;
@@ -20,11 +20,11 @@ import static org.springframework.security.core.authority.AuthorityUtils.commaSe
 @Configuration
 @EnableOAuth2Sso
 @EnableJdbcHttpSession
+@RequiredArgsConstructor
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-    @Autowired
-    ApplicationConfig config;
+    private final ApplicationConfig config;
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
