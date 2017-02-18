@@ -16,11 +16,6 @@ import static org.togglz.core.context.FeatureContext.getFeatureManager;
 class FeaturesConfig
 {
     @Bean
-    FeatureManager featureManager() {
-        return getFeatureManager();
-    }
-
-    @Bean
     FeatureProvider featureProvider()
     {
         return new EnumBasedFeatureProvider(Features.class);
