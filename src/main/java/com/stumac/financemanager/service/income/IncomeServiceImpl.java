@@ -17,7 +17,6 @@ import static java.util.stream.StreamSupport.stream;
 @Component
 class IncomeServiceImpl extends AbstractUserDataServiceImpl<IncomeEntity, Income> implements IncomeService
 {
-
     private final IncomeRepository repository;
 
     @Autowired

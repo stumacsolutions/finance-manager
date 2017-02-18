@@ -18,7 +18,6 @@ import static org.springframework.http.ResponseEntity.ok;
 @RequestMapping(path = "/api/profit-and-loss", produces = HAL_JSON_VALUE)
 class ProfitAndLossRestController extends AbstractRestController
 {
-
     private final ProfitAndLossService service;
 
     @GetMapping(path = "")

@@ -7,7 +7,6 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public enum IncomeSource
 {
-
     INTEREST("Interest"),
     INVOICE("Invoice"),
     SHARES("Shares");

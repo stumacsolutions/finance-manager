@@ -24,7 +24,6 @@ import static org.springframework.security.core.authority.AuthorityUtils.commaSe
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 class SecurityConfig extends WebSecurityConfigurerAdapter
 {
-
     private final ApplicationConfig config;
 
     @Override

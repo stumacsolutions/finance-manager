@@ -10,7 +10,6 @@ import org.springframework.stereotype.Component;
 @Component
 class MileageServiceImpl extends AbstractUserDataServiceImpl<MileageEntity, Mileage> implements MileageService
 {
-
     @Autowired
     public MileageServiceImpl(ModelMapper mapper, MileageRepository repository)
     {

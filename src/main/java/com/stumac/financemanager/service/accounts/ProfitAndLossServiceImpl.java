@@ -24,7 +24,6 @@ import static java.util.stream.Collectors.toList;
 @RequiredArgsConstructor
 class ProfitAndLossServiceImpl implements ProfitAndLossService
 {
-
     private static final BigDecimal CORPORATION_TAX_RATE = BigDecimal.valueOf(0.20);
     private static final BigDecimal FLAT_VAT_RATE = BigDecimal.valueOf(0.135);
 

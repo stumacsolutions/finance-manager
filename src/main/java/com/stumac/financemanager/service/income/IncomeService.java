@@ -8,6 +8,5 @@ import java.util.List;
 
 public interface IncomeService extends UserDataService<Income>
 {
-
     Collection<Income> listBySources(List<IncomeSource> sourceList);
 }

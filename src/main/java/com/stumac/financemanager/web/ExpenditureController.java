@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping(path = "/expenditure")
 class ExpenditureController extends AbstractUserDataController<Expenditure>
 {
-
     @Autowired
     public ExpenditureController(ExpenditureService service)
     {

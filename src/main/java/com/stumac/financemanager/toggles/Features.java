@@ -7,7 +7,6 @@ import static org.togglz.core.context.FeatureContext.getFeatureManager;
 
 public enum Features implements Feature
 {
-
     @Label("Dividends")
     DIVIDENDS,
 

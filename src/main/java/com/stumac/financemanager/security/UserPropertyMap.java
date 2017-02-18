@@ -6,7 +6,6 @@ import org.springframework.stereotype.Component;
 @Component
 class UserPropertyMap extends PropertyMap<User, User>
 {
-
     @Override
     protected void configure()
     {

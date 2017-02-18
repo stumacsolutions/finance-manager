@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 @Controller
 class HomeController
 {
-
     @GetMapping(path = "/")
     public String home()
     {

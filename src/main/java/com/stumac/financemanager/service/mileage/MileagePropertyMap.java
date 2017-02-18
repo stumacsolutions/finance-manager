@@ -10,7 +10,6 @@ import org.springframework.stereotype.Component;
 @RequiredArgsConstructor
 class MileagePropertyMap extends PropertyMap<Mileage, MileageEntity>
 {
-
     private final MilesToMetersConverter milesToMetersConverter;
 
     @Override

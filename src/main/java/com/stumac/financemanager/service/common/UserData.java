@@ -19,7 +19,6 @@ import static org.springframework.format.annotation.DateTimeFormat.ISO.DATE;
 @Setter
 public abstract class UserData
 {
-
     private Long id;
 
     @Size(max = 250)

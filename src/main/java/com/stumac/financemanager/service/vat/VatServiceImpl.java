@@ -10,7 +10,6 @@ import org.springframework.stereotype.Component;
 @Component
 class VatServiceImpl extends AbstractUserDataServiceImpl<VatEntity, Vat> implements VatService
 {
-
     @Autowired
     public VatServiceImpl(ModelMapper mapper, VatRepository repository)
     {

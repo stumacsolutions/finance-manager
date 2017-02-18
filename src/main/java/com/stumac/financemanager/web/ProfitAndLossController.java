@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping(path = "/profit-and-loss")
 class ProfitAndLossController
 {
-
     private final ProfitAndLossService service;
 
     @GetMapping(path = "")

@@ -16,7 +16,6 @@ import javax.persistence.Entity;
 @Entity(name = "vat")
 public class VatEntity extends UserDataEntity
 {
-
     @Column(name = "amount", nullable = false)
     private int amount;
 }

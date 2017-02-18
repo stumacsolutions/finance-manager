@@ -8,7 +8,6 @@ import java.math.BigDecimal;
 @Component
 public class PenceToPoundsConverter extends AbstractConverter<Integer, BigDecimal>
 {
-
     @Override
     protected BigDecimal convert(Integer source)
     {

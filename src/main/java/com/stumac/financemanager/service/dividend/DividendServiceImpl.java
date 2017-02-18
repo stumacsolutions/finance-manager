@@ -10,7 +10,6 @@ import org.springframework.stereotype.Component;
 @Component
 class DividendServiceImpl extends AbstractUserDataServiceImpl<DividendEntity, Dividend> implements DividendService
 {
-
     @Autowired
     public DividendServiceImpl(ModelMapper mapper, DividendRepository repository)
     {

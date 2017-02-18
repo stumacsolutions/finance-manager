@@ -16,7 +16,6 @@ import static java.util.Optional.of;
 @RequiredArgsConstructor
 class UserProfileServiceImpl implements UserProfileService
 {
-
     private final ModelMapper mapper;
     private final UserProfileRepository repository;
 

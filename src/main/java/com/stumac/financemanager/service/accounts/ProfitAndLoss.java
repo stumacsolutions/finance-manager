@@ -12,7 +12,6 @@ import static org.springframework.format.annotation.NumberFormat.Style.CURRENCY;
 @Builder
 public class ProfitAndLoss
 {
-
     /**
      * Also called sales, revenue or income. The total amount this period from selling goods or services, excluding VAT.
      */

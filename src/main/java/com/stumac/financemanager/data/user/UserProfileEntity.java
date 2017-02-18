@@ -21,7 +21,6 @@ import java.time.LocalDate;
 @Entity(name = "user_profile")
 public class UserProfileEntity
 {
-
     @Id
     @GeneratedValue
     @Column(name = "id")

@@ -12,7 +12,6 @@ import static org.springframework.http.ResponseEntity.ok;
 @RequiredArgsConstructor
 public abstract class AbstractUserDataRestController<D extends UserData> extends AbstractRestController
 {
-
     private final UserDataService<D> service;
 
     @GetMapping(path = "")

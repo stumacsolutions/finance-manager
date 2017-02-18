@@ -10,7 +10,6 @@ import org.springframework.stereotype.Component;
 @RequiredArgsConstructor
 class IncomePropertyMap extends PropertyMap<Income, IncomeEntity>
 {
-
     private final PoundsToPenceConverter poundsToPenceConverter;
 
     @Override

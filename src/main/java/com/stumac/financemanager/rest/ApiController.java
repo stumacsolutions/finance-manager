@@ -17,7 +17,6 @@ import static org.springframework.http.ResponseEntity.ok;
 @RequestMapping(path = "/api", produces = HAL_JSON_VALUE)
 class ApiController extends AbstractRestController
 {
-
     @GetMapping(path = "")
     public ResponseEntity<ResourceSupport> home(Model model)
     {

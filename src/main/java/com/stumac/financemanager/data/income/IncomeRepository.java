@@ -9,6 +9,5 @@ import java.util.List;
 @Repository
 public interface IncomeRepository extends UserDataRepository<IncomeEntity>
 {
-
     Iterable<IncomeEntity> findByUserAndSourceIn(User user, List<IncomeSource> sourceList);
 }

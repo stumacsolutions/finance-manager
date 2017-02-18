@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping(path = "/mileage")
 class MileageController extends AbstractUserDataController<Mileage>
 {
-
     @Autowired
     public MileageController(MileageService service)
     {

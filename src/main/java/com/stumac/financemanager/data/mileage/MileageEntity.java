@@ -16,7 +16,6 @@ import javax.persistence.Entity;
 @Entity(name = "mileage")
 public class MileageEntity extends UserDataEntity
 {
-
     @Column(name = "distance", nullable = false)
     private int distance;
 

@@ -21,7 +21,6 @@ import java.time.LocalDate;
 @AllArgsConstructor
 public abstract class UserDataEntity
 {
-
     @Id
     @GeneratedValue
     private long id;

@@ -9,6 +9,5 @@ import java.util.Optional;
 @Repository
 public interface UserProfileRepository extends PagingAndSortingRepository<UserProfileEntity, Long>
 {
-
     Optional<UserProfileEntity> findOneByUser(User user);
 }

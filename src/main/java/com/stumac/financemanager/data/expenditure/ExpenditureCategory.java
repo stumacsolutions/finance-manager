@@ -7,7 +7,6 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public enum ExpenditureCategory
 {
-
     BOOKS("Books", true),
     CORPORATION_TAX("Corporation Tax", false),
     EMPLOYER_PAYE("PAYE for Employers", false),

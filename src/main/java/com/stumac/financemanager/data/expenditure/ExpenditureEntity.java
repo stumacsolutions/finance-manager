@@ -19,7 +19,6 @@ import static javax.persistence.EnumType.STRING;
 @Entity(name = "expenditure")
 public class ExpenditureEntity extends UserDataEntity
 {
-
     @Column(name = "amount", nullable = false)
     private int amount;
 

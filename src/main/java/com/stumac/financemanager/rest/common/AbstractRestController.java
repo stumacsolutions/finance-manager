@@ -7,7 +7,6 @@ import static org.springframework.web.servlet.support.ServletUriComponentsBuilde
 
 public abstract class AbstractRestController
 {
-
     protected Link getSelfLink()
     {
         return new Link(fromCurrentRequestUri().toUriString(), REL_SELF);

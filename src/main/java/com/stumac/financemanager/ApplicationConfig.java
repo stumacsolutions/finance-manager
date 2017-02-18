@@ -14,7 +14,6 @@ import java.util.Map;
 @ConfigurationProperties
 public class ApplicationConfig
 {
-
     public Security security;
 
     @Getter

@@ -19,7 +19,6 @@ import static java.util.stream.StreamSupport.stream;
 public abstract class AbstractUserDataServiceImpl<E extends UserDataEntity, D extends UserData>
     implements UserDataService<D>
 {
-
     private final ModelMapper mapper;
     private final UserDataRepository<E> repository;
     private final Class<D> domainClass;

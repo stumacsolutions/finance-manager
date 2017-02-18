@@ -24,7 +24,6 @@ import java.time.LocalDate;
 @Entity(name = "user")
 public class User implements Serializable
 {
-
     @Id
     @GeneratedValue
     private long id;

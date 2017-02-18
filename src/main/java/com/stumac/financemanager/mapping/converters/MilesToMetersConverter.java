@@ -11,7 +11,6 @@ import static java.math.BigDecimal.ROUND_HALF_UP;
 @Component
 public class MilesToMetersConverter extends AbstractConverter<BigDecimal, Integer>
 {
-
     @Override
     protected Integer convert(BigDecimal source)
     {

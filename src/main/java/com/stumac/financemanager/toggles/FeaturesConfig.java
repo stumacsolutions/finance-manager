@@ -12,7 +12,6 @@ import javax.sql.DataSource;
 @Configuration
 class FeaturesConfig
 {
-
     @Bean
     FeatureProvider featureProvider()
     {

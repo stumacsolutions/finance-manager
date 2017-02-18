@@ -8,7 +8,6 @@ import org.thymeleaf.extras.java8time.dialect.Java8TimeDialect;
 @Configuration
 class ThymeleafConfig
 {
-
     @Bean
     Html5ValDialect html5ValDialect()
     {

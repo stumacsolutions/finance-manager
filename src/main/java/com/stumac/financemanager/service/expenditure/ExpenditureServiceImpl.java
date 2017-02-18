@@ -17,7 +17,6 @@ import static java.util.stream.StreamSupport.stream;
 @Component
 class ExpenditureServiceImpl extends AbstractUserDataServiceImpl<ExpenditureEntity, Expenditure> implements ExpenditureService
 {
-
     private final ExpenditureRepository repository;
 
     @Autowired

@@ -10,7 +10,6 @@ import java.util.Collection;
 @Configuration
 class MappingConfig
 {
-
     @Bean
     ModelMapper modelMapper(Collection<PropertyMap<?, ?>> propertyMaps)
     {

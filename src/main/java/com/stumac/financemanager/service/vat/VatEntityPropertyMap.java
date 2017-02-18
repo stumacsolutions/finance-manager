@@ -10,7 +10,6 @@ import org.springframework.stereotype.Component;
 @RequiredArgsConstructor
 class VatEntityPropertyMap extends PropertyMap<VatEntity, Vat>
 {
-
     private final PenceToPoundsConverter penceToPoundsConverter;
 
     @Override

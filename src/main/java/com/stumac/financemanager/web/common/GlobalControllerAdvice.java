@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 @RequiredArgsConstructor
 class GlobalControllerAdvice
 {
-
     private final BuildProperties buildProperties;
 
     @ModelAttribute("buildProperties")

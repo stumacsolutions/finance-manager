@@ -10,7 +10,6 @@ import static net.sourceforge.html5val.performers.DigitsRegexpComposer.forDigits
 
 public class DigitsPerformer implements ValidationPerformer<Digits>
 {
-
     public Class<Digits> getConstraintClass()
     {
         return Digits.class;

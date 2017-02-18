@@ -16,7 +16,6 @@ import javax.persistence.Entity;
 @Entity(name = "dividend")
 public class DividendEntity extends UserDataEntity
 {
-
     @Column(name = "amount", nullable = false)
     private int amount;
 }

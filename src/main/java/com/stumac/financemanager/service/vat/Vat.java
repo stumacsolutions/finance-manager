@@ -16,7 +16,6 @@ import static org.springframework.format.annotation.NumberFormat.Style.CURRENCY;
 @Setter
 public class Vat extends UserData
 {
-
     @Min(0)
     @NotNull
     @NumberFormat(style = CURRENCY)

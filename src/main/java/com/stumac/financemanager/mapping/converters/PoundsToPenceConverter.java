@@ -10,7 +10,6 @@ import static java.math.BigDecimal.ROUND_HALF_UP;
 @Component
 public class PoundsToPenceConverter extends AbstractConverter<BigDecimal, Integer>
 {
-
     @Override
     protected Integer convert(BigDecimal source)
     {

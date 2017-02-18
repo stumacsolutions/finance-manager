@@ -14,7 +14,6 @@ import java.math.BigDecimal;
 @Setter
 public class Mileage extends UserData
 {
-
     @Min(0)
     @NotNull
     @Digits(integer = 6, fraction = 3)

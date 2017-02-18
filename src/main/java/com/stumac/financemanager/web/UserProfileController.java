@@ -20,7 +20,6 @@ import java.util.Optional;
 @RequestMapping(value = "/user/profile")
 class UserProfileController
 {
-
     private final UserProfileService service;
 
     @GetMapping(path = "/edit")

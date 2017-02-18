@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping(path = "/income")
 class IncomeController extends AbstractUserDataController<Income>
 {
-
     @Autowired
     public IncomeController(IncomeService service)
     {

@@ -5,7 +5,6 @@ import java.util.Optional;
 
 public interface UserDataService<D extends UserData>
 {
-
     void add(D expenditure);
 
     void delete(long id);

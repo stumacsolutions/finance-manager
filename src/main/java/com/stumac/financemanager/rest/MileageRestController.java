@@ -13,7 +13,6 @@ import static org.springframework.hateoas.MediaTypes.HAL_JSON_VALUE;
 @RequestMapping(path = "/api/mileage", produces = HAL_JSON_VALUE)
 class MileageRestController extends AbstractUserDataRestController<Mileage>
 {
-
     @Autowired
     public MileageRestController(MileageService service)
     {

@@ -8,6 +8,5 @@ import java.util.List;
 
 public interface ExpenditureService extends UserDataService<Expenditure>
 {
-
     Collection<Expenditure> listByCategories(List<ExpenditureCategory> categoryList);
 }

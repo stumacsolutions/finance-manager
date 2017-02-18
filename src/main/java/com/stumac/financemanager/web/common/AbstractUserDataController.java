@@ -20,7 +20,6 @@ import static java.lang.String.format;
 @RequiredArgsConstructor
 public abstract class AbstractUserDataController<D extends UserData>
 {
-
     private final UserDataService<D> service;
     private final Class<D> serviceClass;
 
