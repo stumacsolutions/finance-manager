@@ -1,7 +1,9 @@
 package com.stumac.financemanager.home;
 
 import com.stumac.financemanager.accounts.ProfitAndLossRestController;
+import com.stumac.financemanager.dividends.DividendRestController;
 import com.stumac.financemanager.expenditure.ExpenditureRestController;
+import com.stumac.financemanager.features.Features;
 import com.stumac.financemanager.income.IncomeRestController;
 import com.stumac.financemanager.mileage.MileageRestController;
 import com.stumac.financemanager.vat.VatRestController;
@@ -26,22 +28,61 @@ public class ApiController extends AbstractRestController
     public ResponseEntity<ResourceSupport> home(Model model)
     {
         ResourceSupport resource = new ResourceSupport();
+        linkToDividendsController(resource);
+        linkToExpenditureController(resource);
+        linkToIncomeController(resource);
+        linkToMileageController(resource);
+        linkToProfitAndLossController(resource);
+        linkToVatController(resource);
+        resource.add(getSelfLink());
+        return ok(resource);
+    }
+
+    private void linkToDividendsController(ResourceSupport resource)
+    {
+        if (Features.DIVIDENDS.isActive())
+        {
+            resource.add(
+                linkTo(methodOn(DividendRestController.class).listAll())
+                    .withRel("dividends"));
+        }
+    }
+
+    private void linkToExpenditureController(ResourceSupport resource)
+    {
         resource.add(
             linkTo(methodOn(ExpenditureRestController.class).listAll())
                 .withRel("expenditure"));
+    }
+
+    private void linkToIncomeController(ResourceSupport resource)
+    {
         resource.add(
             linkTo(methodOn(IncomeRestController.class).listAll())
                 .withRel("income"));
+    }
+
+    private void linkToMileageController(ResourceSupport resource)
+    {
         resource.add(
             linkTo(methodOn(MileageRestController.class).listAll())
                 .withRel("mileage"));
-        resource.add(getSelfLink());
+    }
+
+    private void linkToProfitAndLossController(ResourceSupport resource)
+    {
         resource.add(
             linkTo(methodOn(ProfitAndLossRestController.class).generate())
                 .withRel("profit-and-loss"));
-        resource.add(
-            linkTo(methodOn(VatRestController.class).listAll())
-                .withRel("vat"));
-        return ok(resource);
+    }
+
+    private void linkToVatController(ResourceSupport resource)
+    {
+        if (Features.VAT.isActive())
+        {
+            resource.add(
+                linkTo(methodOn(VatRestController.class).listAll())
+                    .withRel("vat"));
+        }
     }
 }
