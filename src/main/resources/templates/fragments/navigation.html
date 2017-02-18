@@ -27,6 +27,9 @@
         <li th:class="${navigationSection == 'expenditure' ? 'active' : ''}">
           <a th:href="@{/expenditure}">Expenditure</a>
         </li>
+        <li togglz:active="MILEAGE" th:class="${navigationSection == 'mileage' ? 'active' : ''}"><a
+          th:href="@{/mileage}">Mileage</a>
+        </li>
         <li togglz:active="DIVIDENDS" th:class="${navigationSection == 'dividend' ? 'active' : ''}"><a
           th:href="@{/dividends}">Dividends</a>
         </li>

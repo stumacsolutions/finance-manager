@@ -64,9 +64,12 @@ public class ApiController extends AbstractRestController
 
     private void linkToMileageController(ResourceSupport resource)
     {
-        resource.add(
-            linkTo(methodOn(MileageRestController.class).listAll())
-                .withRel("mileage"));
+        if (Features.MILEAGE.isActive())
+        {
+            resource.add(
+                linkTo(methodOn(MileageRestController.class).listAll())
+                    .withRel("mileage"));
+        }
     }
 
     private void linkToProfitAndLossController(ResourceSupport resource)

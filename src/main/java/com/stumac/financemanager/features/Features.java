@@ -10,6 +10,9 @@ public enum Features implements Feature
     @Label("Dividends")
     DIVIDENDS,
 
+    @Label("Mileage")
+    MILEAGE,
+
     @Label("VAT")
     VAT;
 
