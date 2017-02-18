@@ -1,4 +1,4 @@
-package com.stumac.financemanager.toggles;
+package com.stumac.financemanager.features;
 
 import org.togglz.core.Feature;
 import org.togglz.core.annotation.Label;

@@ -1,4 +1,4 @@
-package com.stumac.financemanager.toggles;
+package com.stumac.financemanager.features;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
