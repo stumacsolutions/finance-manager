@@ -1,12 +1,16 @@
-package com.stumac.financemanager.security.config;
+package com.stumac.financemanager.security;
 
 import com.stumac.financemanager.ApplicationConfig;
-import com.stumac.financemanager.security.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.security.oauth2.client.EnableOAuth2Sso;
 import org.springframework.boot.autoconfigure.security.oauth2.resource.AuthoritiesExtractor;
 import org.springframework.boot.autoconfigure.security.oauth2.resource.PrincipalExtractor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.session.jdbc.config.annotation.web.http.EnableJdbcHttpSession;
 
 import java.util.Map;
 
@@ -14,10 +18,27 @@ import static java.time.LocalDate.now;
 import static org.springframework.security.core.authority.AuthorityUtils.commaSeparatedStringToAuthorityList;
 
 @Configuration
-class ExtractorConfig {
+@EnableOAuth2Sso
+@EnableJdbcHttpSession
+@EnableGlobalMethodSecurity(prePostEnabled = true)
+class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
     ApplicationConfig config;
+
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http.authorizeRequests()
+            .antMatchers("/admin/**").hasRole("ADMIN")
+            .antMatchers("/", "/login**", "/css/**", "/img/**", "/webjars/**").permitAll()
+            .anyRequest().authenticated()
+            .and()
+            .csrf().ignoringAntMatchers("/admin/h2-console/*")
+            .and()
+            .logout().logoutSuccessUrl("/").permitAll()
+            .and()
+            .headers().frameOptions().sameOrigin();
+    }
 
     @Bean
     AuthoritiesExtractor authoritiesExtractor() {
