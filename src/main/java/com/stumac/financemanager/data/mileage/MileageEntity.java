@@ -14,7 +14,8 @@ import javax.persistence.Entity;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity(name = "mileage")
-public class MileageEntity extends UserDataEntity {
+public class MileageEntity extends UserDataEntity
+{
 
     @Column(name = "distance", nullable = false)
     private int distance;

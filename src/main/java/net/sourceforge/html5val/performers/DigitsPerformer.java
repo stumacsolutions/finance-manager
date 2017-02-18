@@ -8,13 +8,16 @@ import java.math.BigDecimal;
 
 import static net.sourceforge.html5val.performers.DigitsRegexpComposer.forDigits;
 
-public class DigitsPerformer implements ValidationPerformer<Digits> {
+public class DigitsPerformer implements ValidationPerformer<Digits>
+{
 
-    public Class<Digits> getConstraintClass() {
+    public Class<Digits> getConstraintClass()
+    {
         return Digits.class;
     }
 
-    public void putValidationCodeInto(Digits digits, Element element) {
+    public void putValidationCodeInto(Digits digits, Element element)
+    {
         element.setAttribute("pattern", forDigits(digits).regexp());
         element.setAttribute("step", BigDecimal.valueOf(1, digits.fraction()).toString());
     }

@@ -16,7 +16,8 @@ import static org.springframework.format.annotation.NumberFormat.Style.CURRENCY;
 
 @Getter
 @Setter
-public class Expenditure extends UserData {
+public class Expenditure extends UserData
+{
 
     @Min(0)
     @NotNull

@@ -3,7 +3,8 @@ package com.stumac.financemanager.service.common;
 import java.util.List;
 import java.util.Optional;
 
-public interface UserDataService<D extends UserData> {
+public interface UserDataService<D extends UserData>
+{
 
     void add(D expenditure);
 

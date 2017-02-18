@@ -19,7 +19,8 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity(name = "user_profile")
-public class UserProfileEntity {
+public class UserProfileEntity
+{
 
     @Id
     @GeneratedValue

@@ -11,18 +11,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequiredArgsConstructor
 @RequestMapping(path = "/profit-and-loss")
-class ProfitAndLossController {
+class ProfitAndLossController
+{
 
     private final ProfitAndLossService service;
 
     @GetMapping(path = "")
-    public String manage(Model model) {
+    public String manage(Model model)
+    {
         model.addAttribute(service.generate());
         return "accounts/profitAndLoss";
     }
 
     @ModelAttribute("navigationSection")
-    public String getNavigationSection() {
+    public String getNavigationSection()
+    {
         return "profit-and-loss";
     }
 }

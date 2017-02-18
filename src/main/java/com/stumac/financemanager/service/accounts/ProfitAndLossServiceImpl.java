@@ -22,7 +22,8 @@ import static java.util.stream.Collectors.toList;
 
 @Service
 @RequiredArgsConstructor
-class ProfitAndLossServiceImpl implements ProfitAndLossService {
+class ProfitAndLossServiceImpl implements ProfitAndLossService
+{
 
     private static final BigDecimal CORPORATION_TAX_RATE = BigDecimal.valueOf(0.20);
     private static final BigDecimal FLAT_VAT_RATE = BigDecimal.valueOf(0.135);
@@ -31,7 +32,8 @@ class ProfitAndLossServiceImpl implements ProfitAndLossService {
     private final IncomeService incomeService;
 
     @Override
-    public ProfitAndLoss generate() {
+    public ProfitAndLoss generate()
+    {
         BigDecimal turnover = calculateTurnover();
         BigDecimal costOfSales = calculateCostOfSales();
         BigDecimal grossProfit = calculateGrossProfit(turnover, costOfSales);
@@ -60,69 +62,83 @@ class ProfitAndLossServiceImpl implements ProfitAndLossService {
             .build();
     }
 
-    private BigDecimal calculateTurnover() {
+    private BigDecimal calculateTurnover()
+    {
         BigDecimal invoiceIncome = calculateCombinedIncome(singletonList(INVOICE));
         BigDecimal vatPaid = invoiceIncome.multiply(FLAT_VAT_RATE).setScale(2, HALF_UP);
         return invoiceIncome.subtract(vatPaid);
     }
 
-    private BigDecimal calculateCostOfSales() {
+    private BigDecimal calculateCostOfSales()
+    {
         return calculateCombinedExpenditure(
             stream(ExpenditureCategory.values())
                 .filter(ExpenditureCategory::isCostOfSale)
                 .collect(toList()));
     }
 
-    private BigDecimal calculateGrossProfit(BigDecimal turnover, BigDecimal costOfSales) {
+    private BigDecimal calculateGrossProfit(BigDecimal turnover, BigDecimal costOfSales)
+    {
         return turnover.subtract(costOfSales);
     }
 
-    private BigDecimal calculateDistributionCosts() {
+    private BigDecimal calculateDistributionCosts()
+    {
         return ZERO;
     }
 
-    private BigDecimal calculateAdministrativeExpenses() {
+    private BigDecimal calculateAdministrativeExpenses()
+    {
         return calculateCombinedExpenditure(
             stream(ExpenditureCategory.values())
                 .filter(category -> !category.isCostOfSale())
                 .collect(toList()));
     }
 
-    private BigDecimal calculateOtherOperatingIncome() {
+    private BigDecimal calculateOtherOperatingIncome()
+    {
         return ZERO;
     }
 
-    private BigDecimal calculateOperatingProfit(BigDecimal grossProfit, BigDecimal administrativeExpenses, BigDecimal otherOperatingIncome) {
+    private BigDecimal calculateOperatingProfit(BigDecimal grossProfit, BigDecimal administrativeExpenses, BigDecimal otherOperatingIncome)
+    {
         return grossProfit.subtract(administrativeExpenses).subtract(administrativeExpenses).add(otherOperatingIncome);
     }
 
-    private BigDecimal calculateInterestReceivable() {
+    private BigDecimal calculateInterestReceivable()
+    {
         return calculateCombinedIncome(singletonList(INTEREST));
     }
 
-    private BigDecimal calculateInterestPayable() {
+    private BigDecimal calculateInterestPayable()
+    {
         return ZERO;
     }
 
-    private BigDecimal calculateProfitBeforeTax(BigDecimal operatingProfit, BigDecimal interestReceivable, BigDecimal interestPayable) {
+    private BigDecimal calculateProfitBeforeTax(BigDecimal operatingProfit, BigDecimal interestReceivable, BigDecimal interestPayable)
+    {
         return operatingProfit.add(interestReceivable).subtract(interestPayable);
     }
 
-    private BigDecimal calculateTaxOnProfit(BigDecimal profitBeforeTax) {
+    private BigDecimal calculateTaxOnProfit(BigDecimal profitBeforeTax)
+    {
         return profitBeforeTax.multiply(CORPORATION_TAX_RATE).setScale(2, HALF_UP);
     }
 
-    private BigDecimal calculateProfit(BigDecimal profitBeforeTax, BigDecimal taxOnProfit) {
+    private BigDecimal calculateProfit(BigDecimal profitBeforeTax, BigDecimal taxOnProfit)
+    {
         return profitBeforeTax.subtract(taxOnProfit);
     }
 
-    private BigDecimal calculateCombinedIncome(List<IncomeSource> sources) {
+    private BigDecimal calculateCombinedIncome(List<IncomeSource> sources)
+    {
         return incomeService.listBySources(sources).stream()
             .map(Income::getAmount)
             .reduce(ZERO, BigDecimal::add);
     }
 
-    private BigDecimal calculateCombinedExpenditure(List<ExpenditureCategory> categories) {
+    private BigDecimal calculateCombinedExpenditure(List<ExpenditureCategory> categories)
+    {
         return expenditureService.listByCategories(categories).stream()
             .map(Expenditure::getAmount)
             .reduce(ZERO, BigDecimal::add);

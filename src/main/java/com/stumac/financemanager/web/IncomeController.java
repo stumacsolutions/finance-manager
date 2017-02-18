@@ -11,15 +11,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping(path = "/income")
-class IncomeController extends AbstractUserDataController<Income> {
+class IncomeController extends AbstractUserDataController<Income>
+{
 
     @Autowired
-    public IncomeController(IncomeService service) {
+    public IncomeController(IncomeService service)
+    {
         super(service, Income.class);
     }
 
     @ModelAttribute("sources")
-    public IncomeSource[] getCategories() {
+    public IncomeSource[] getCategories()
+    {
         return IncomeSource.values();
     }
 }

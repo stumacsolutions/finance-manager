@@ -22,7 +22,8 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity(name = "user")
-public class User implements Serializable {
+public class User implements Serializable
+{
 
     @Id
     @GeneratedValue
@@ -40,14 +41,16 @@ public class User implements Serializable {
     @Column(name = "username", nullable = false)
     private String username;
 
-    public static User getCurrentUser() {
+    public static User getCurrentUser()
+    {
         SecurityContext context = SecurityContextHolder.getContext();
         Authentication authentication = context.getAuthentication();
         return (User) authentication.getPrincipal();
     }
 
     @Override
-    public String toString() {
+    public String toString()
+    {
         return getUsername();
     }
 }

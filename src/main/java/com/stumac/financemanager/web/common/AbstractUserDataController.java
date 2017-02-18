@@ -18,26 +18,30 @@ import java.util.Optional;
 import static java.lang.String.format;
 
 @RequiredArgsConstructor
-public abstract class AbstractUserDataController<D extends UserData> {
+public abstract class AbstractUserDataController<D extends UserData>
+{
 
     private final UserDataService<D> service;
     private final Class<D> serviceClass;
 
     @GetMapping(path = "")
-    public String manage(Model model) {
+    public String manage(Model model)
+    {
         model.addAttribute(format("%ss", getType()), service.listAll());
         return format("%s/manage", getType());
     }
 
     @SneakyThrows
     @GetMapping(path = "/add")
-    public String add(Model model) {
+    public String add(Model model)
+    {
         model.addAttribute(getType(), serviceClass.newInstance());
         return format("%s/edit", getType());
     }
 
     @GetMapping(path = "/copy/{id}")
-    public String copy(@PathVariable(name = "id") long id, Model model) {
+    public String copy(@PathVariable(name = "id") long id, Model model)
+    {
         D userData = getUserData(id);
         userData.setId(null);
         model.addAttribute(getType(), userData);
@@ -45,46 +49,56 @@ public abstract class AbstractUserDataController<D extends UserData> {
     }
 
     @GetMapping(path = "/edit/{id}")
-    public String edit(@PathVariable(name = "id") long id, Model model) {
+    public String edit(@PathVariable(name = "id") long id, Model model)
+    {
         model.addAttribute(getType(), getUserData(id));
         return format("%s/edit", getType());
     }
 
     @GetMapping(path = "/delete/{id}")
-    public String delete(@PathVariable(name = "id") long id, Model model) {
+    public String delete(@PathVariable(name = "id") long id, Model model)
+    {
         model.addAttribute(getType(), getUserData(id));
         return format("%s/delete", getType());
     }
 
     @PostMapping(path = "/delete/{id}")
-    public String remove(@PathVariable(name = "id") long id) {
+    public String remove(@PathVariable(name = "id") long id)
+    {
         service.delete(id);
         return format("redirect:/%s", getType());
     }
 
     @PostMapping(path = "/save")
-    public String save(@Valid D userData, BindingResult bindingResult, Model model) {
-        if (bindingResult.hasErrors()) {
+    public String save(@Valid D userData, BindingResult bindingResult, Model model)
+    {
+        if (bindingResult.hasErrors())
+        {
             model.addAttribute(getType(), userData);
             return format("%s/edit", getType());
-        } else {
+        } else
+        {
             service.add(userData);
             return format("redirect:/%s", getType());
         }
     }
 
     @ModelAttribute("navigationSection")
-    public String getNavigationSection() {
+    public String getNavigationSection()
+    {
         return getType();
     }
 
-    private String getType() {
+    private String getType()
+    {
         return serviceClass.getSimpleName().toLowerCase();
     }
 
-    private D getUserData(long id) {
+    private D getUserData(long id)
+    {
         Optional<D> maybeUserData = service.get(id);
-        if (maybeUserData.isPresent()) {
+        if (maybeUserData.isPresent())
+        {
             return maybeUserData.get();
         }
         throw new ResourceNotFoundException();

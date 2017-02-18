@@ -14,7 +14,8 @@ import javax.persistence.Entity;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity(name = "dividend")
-public class DividendEntity extends UserDataEntity {
+public class DividendEntity extends UserDataEntity
+{
 
     @Column(name = "amount", nullable = false)
     private int amount;

@@ -7,7 +7,8 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
 @Repository
-public interface UserProfileRepository extends PagingAndSortingRepository<UserProfileEntity, Long> {
+public interface UserProfileRepository extends PagingAndSortingRepository<UserProfileEntity, Long>
+{
 
     Optional<UserProfileEntity> findOneByUser(User user);
 }

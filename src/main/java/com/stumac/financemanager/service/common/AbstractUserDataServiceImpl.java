@@ -17,7 +17,8 @@ import static java.util.stream.StreamSupport.stream;
 
 @RequiredArgsConstructor
 public abstract class AbstractUserDataServiceImpl<E extends UserDataEntity, D extends UserData>
-    implements UserDataService<D> {
+    implements UserDataService<D>
+{
 
     private final ModelMapper mapper;
     private final UserDataRepository<E> repository;
@@ -25,19 +26,22 @@ public abstract class AbstractUserDataServiceImpl<E extends UserDataEntity, D ex
     private final Class<E> entityClass;
 
     @Override
-    public void add(D data) {
+    public void add(D data)
+    {
         E entity = map(data);
         entity.setUser(getCurrentUser());
         repository.save(entity);
     }
 
     @Override
-    public void delete(long id) {
+    public void delete(long id)
+    {
         repository.delete(id);
     }
 
     @Override
-    public Optional<D> get(long id) {
+    public Optional<D> get(long id)
+    {
         Optional<E> maybeEntity = repository.findOneByIdAndUser(id, getCurrentUser());
         return maybeEntity.isPresent() ?
             Optional.of(map(maybeEntity.get())) :
@@ -45,24 +49,28 @@ public abstract class AbstractUserDataServiceImpl<E extends UserDataEntity, D ex
     }
 
     @Override
-    public List<D> listAll() {
+    public List<D> listAll()
+    {
         Iterable<E> data = repository.findAllByUserOrderByDateAsc(getCurrentUser());
         return stream(data.spliterator(), false)
             .map(this::map)
             .collect(toList());
     }
 
-    protected User getCurrentUser() {
+    protected User getCurrentUser()
+    {
         SecurityContext context = SecurityContextHolder.getContext();
         Authentication authentication = context.getAuthentication();
         return (User) authentication.getPrincipal();
     }
 
-    protected E map(D source) {
+    protected E map(D source)
+    {
         return mapper.map(source, entityClass);
     }
 
-    protected D map(E source) {
+    protected D map(E source)
+    {
         return mapper.map(source, domainClass);
     }
 }

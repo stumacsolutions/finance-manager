@@ -10,15 +10,18 @@ import org.togglz.core.spi.FeatureProvider;
 import javax.sql.DataSource;
 
 @Configuration
-class FeaturesConfig {
+class FeaturesConfig
+{
 
     @Bean
-    FeatureProvider featureProvider() {
+    FeatureProvider featureProvider()
+    {
         return new EnumBasedFeatureProvider(Features.class);
     }
 
     @Bean
-    StateRepository stateRepository(DataSource dataSource) {
+    StateRepository stateRepository(DataSource dataSource)
+    {
         return new JDBCStateRepository(dataSource);
     }
 }

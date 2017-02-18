@@ -5,7 +5,8 @@ import org.togglz.core.annotation.Label;
 
 import static org.togglz.core.context.FeatureContext.getFeatureManager;
 
-public enum Features implements Feature {
+public enum Features implements Feature
+{
 
     @Label("Dividends")
     DIVIDENDS,
@@ -13,7 +14,8 @@ public enum Features implements Feature {
     @Label("VAT")
     VAT;
 
-    public boolean isActive() {
+    public boolean isActive()
+    {
         return getFeatureManager().isActive(this);
     }
 }

@@ -15,10 +15,12 @@ import static org.springframework.http.ResponseEntity.ok;
 
 @RestController
 @RequestMapping(path = "/api", produces = HAL_JSON_VALUE)
-class ApiController extends AbstractRestController {
+class ApiController extends AbstractRestController
+{
 
     @GetMapping(path = "")
-    public ResponseEntity<ResourceSupport> home(Model model) {
+    public ResponseEntity<ResourceSupport> home(Model model)
+    {
         ResourceSupport resource = new ResourceSupport();
         resource.add(
             linkTo(methodOn(ExpenditureRestController.class).listAll())
@@ -29,7 +31,8 @@ class ApiController extends AbstractRestController {
         resource.add(
             linkTo(methodOn(MileageRestController.class).listAll())
                 .withRel("mileage"));
-        resource.add(getSelfLink());resource.add(
+        resource.add(getSelfLink());
+        resource.add(
             linkTo(methodOn(ProfitAndLossRestController.class).generate())
                 .withRel("profit-and-loss"));
         resource.add(

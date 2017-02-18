@@ -9,10 +9,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping(path = "/dividend")
-class DividendController extends AbstractUserDataController<Dividend> {
+class DividendController extends AbstractUserDataController<Dividend>
+{
 
     @Autowired
-    public DividendController(DividendService service) {
+    public DividendController(DividendService service)
+    {
         super(service, Dividend.class);
     }
 }

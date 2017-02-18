@@ -9,10 +9,12 @@ import static com.stumac.financemanager.mapping.converters.Constants.METERS_IN_A
 import static java.math.BigDecimal.ROUND_HALF_UP;
 
 @Component
-public class MetersToMilesConverter extends AbstractConverter<Integer, BigDecimal> {
+public class MetersToMilesConverter extends AbstractConverter<Integer, BigDecimal>
+{
 
     @Override
-    protected BigDecimal convert(Integer source) {
+    protected BigDecimal convert(Integer source)
+    {
         return new BigDecimal(source)
             .divide(BigDecimal.valueOf(METERS_IN_A_MILE), 3, ROUND_HALF_UP);
     }

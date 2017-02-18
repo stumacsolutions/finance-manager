@@ -12,7 +12,8 @@ import java.math.BigDecimal;
 
 @Getter
 @Setter
-public class Mileage extends UserData {
+public class Mileage extends UserData
+{
 
     @Min(0)
     @NotNull

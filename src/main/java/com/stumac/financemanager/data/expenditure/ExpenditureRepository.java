@@ -7,7 +7,8 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface ExpenditureRepository extends UserDataRepository<ExpenditureEntity> {
+public interface ExpenditureRepository extends UserDataRepository<ExpenditureEntity>
+{
 
     Iterable<ExpenditureEntity> findByUserAndCategoryIn(User user, List<ExpenditureCategory> categoryList);
 }

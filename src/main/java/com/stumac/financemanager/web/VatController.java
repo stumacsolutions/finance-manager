@@ -9,10 +9,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping(path = "/vat")
-class VatController extends AbstractUserDataController<Vat> {
+class VatController extends AbstractUserDataController<Vat>
+{
 
     @Autowired
-    public VatController(VatService service) {
+    public VatController(VatService service)
+    {
         super(service, Vat.class);
     }
 }

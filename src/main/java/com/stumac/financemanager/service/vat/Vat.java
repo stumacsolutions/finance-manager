@@ -14,7 +14,8 @@ import static org.springframework.format.annotation.NumberFormat.Style.CURRENCY;
 
 @Getter
 @Setter
-public class Vat extends UserData {
+public class Vat extends UserData
+{
 
     @Min(0)
     @NotNull

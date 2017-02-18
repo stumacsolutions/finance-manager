@@ -18,12 +18,14 @@ import java.util.Optional;
 @Controller
 @RequiredArgsConstructor
 @RequestMapping(value = "/user/profile")
-class UserProfileController {
+class UserProfileController
+{
 
     private final UserProfileService service;
 
     @GetMapping(path = "/edit")
-    public String edit(@AuthenticationPrincipal User user, Model model) {
+    public String edit(@AuthenticationPrincipal User user, Model model)
+    {
         Optional<UserProfile> maybeProfile = service.get();
         UserProfile profile = maybeProfile.isPresent() ? maybeProfile.get() : new UserProfile();
         model.addAttribute("userProfile", profile);
@@ -31,11 +33,14 @@ class UserProfileController {
     }
 
     @PostMapping(path = "/save")
-    public String save(@Valid UserProfile userProfile, BindingResult bindingResult, Model model) {
-        if (bindingResult.hasErrors()) {
+    public String save(@Valid UserProfile userProfile, BindingResult bindingResult, Model model)
+    {
+        if (bindingResult.hasErrors())
+        {
             model.addAttribute("userProfile", userProfile);
             return "user/profile/edit";
-        } else {
+        } else
+        {
             service.save(userProfile);
             return "redirect:/";
         }

@@ -16,12 +16,14 @@ import static org.springframework.http.ResponseEntity.ok;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping(path = "/api/profit-and-loss", produces = HAL_JSON_VALUE)
-class ProfitAndLossRestController extends AbstractRestController {
+class ProfitAndLossRestController extends AbstractRestController
+{
 
     private final ProfitAndLossService service;
 
     @GetMapping(path = "")
-    public ResponseEntity<Resource<ProfitAndLoss>> generate() {
+    public ResponseEntity<Resource<ProfitAndLoss>> generate()
+    {
         Resource<ProfitAndLoss> resource = new Resource<>(service.generate());
         resource.add(getSelfLink());
         return ok(resource);

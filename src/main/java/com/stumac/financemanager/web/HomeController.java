@@ -5,15 +5,18 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
 @Controller
-class HomeController {
+class HomeController
+{
 
     @GetMapping(path = "/")
-    public String home() {
+    public String home()
+    {
         return "index";
     }
 
     @ModelAttribute("navigationSection")
-    public String getNavigationSection() {
+    public String getNavigationSection()
+    {
         return "home";
     }
 }

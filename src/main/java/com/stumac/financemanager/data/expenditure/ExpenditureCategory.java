@@ -5,7 +5,8 @@ import lombok.RequiredArgsConstructor;
 
 @Getter
 @RequiredArgsConstructor
-public enum ExpenditureCategory {
+public enum ExpenditureCategory
+{
 
     BOOKS("Books", true),
     CORPORATION_TAX("Corporation Tax", false),
@@ -23,7 +24,8 @@ public enum ExpenditureCategory {
     private final String displayName;
     private final boolean costOfSale;
 
-    public String getId() {
+    public String getId()
+    {
         return name();
     }
 }

@@ -6,7 +6,8 @@ import com.stumac.financemanager.service.common.UserDataService;
 import java.util.Collection;
 import java.util.List;
 
-public interface IncomeService extends UserDataService<Income> {
+public interface IncomeService extends UserDataService<Income>
+{
 
     Collection<Income> listBySources(List<IncomeSource> sourceList);
 }

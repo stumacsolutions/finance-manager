@@ -11,10 +11,12 @@ import static org.springframework.hateoas.MediaTypes.HAL_JSON_VALUE;
 
 @RestController
 @RequestMapping(path = "/api/vat", produces = HAL_JSON_VALUE)
-class VatRestController extends AbstractUserDataRestController<Vat> {
+class VatRestController extends AbstractUserDataRestController<Vat>
+{
 
     @Autowired
-    public VatRestController(VatService service) {
+    public VatRestController(VatService service)
+    {
         super(service);
     }
 }

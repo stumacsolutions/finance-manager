@@ -19,7 +19,8 @@ import java.time.LocalDate;
 @MappedSuperclass
 @NoArgsConstructor
 @AllArgsConstructor
-public abstract class UserDataEntity {
+public abstract class UserDataEntity
+{
 
     @Id
     @GeneratedValue

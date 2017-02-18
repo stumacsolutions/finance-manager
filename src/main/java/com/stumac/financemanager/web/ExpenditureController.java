@@ -11,15 +11,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping(path = "/expenditure")
-class ExpenditureController extends AbstractUserDataController<Expenditure> {
+class ExpenditureController extends AbstractUserDataController<Expenditure>
+{
 
     @Autowired
-    public ExpenditureController(ExpenditureService service) {
+    public ExpenditureController(ExpenditureService service)
+    {
         super(service, Expenditure.class);
     }
 
     @ModelAttribute("categories")
-    public ExpenditureCategory[] getCategories() {
+    public ExpenditureCategory[] getCategories()
+    {
         return ExpenditureCategory.values();
     }
 }

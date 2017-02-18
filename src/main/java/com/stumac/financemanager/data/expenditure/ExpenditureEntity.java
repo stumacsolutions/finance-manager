@@ -17,7 +17,8 @@ import static javax.persistence.EnumType.STRING;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity(name = "expenditure")
-public class ExpenditureEntity extends UserDataEntity {
+public class ExpenditureEntity extends UserDataEntity
+{
 
     @Column(name = "amount", nullable = false)
     private int amount;

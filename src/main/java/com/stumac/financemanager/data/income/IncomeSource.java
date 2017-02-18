@@ -5,7 +5,8 @@ import lombok.RequiredArgsConstructor;
 
 @Getter
 @RequiredArgsConstructor
-public enum IncomeSource {
+public enum IncomeSource
+{
 
     INTEREST("Interest"),
     INVOICE("Invoice"),
@@ -13,7 +14,8 @@ public enum IncomeSource {
 
     private final String displayName;
 
-    public String getId() {
+    public String getId()
+    {
         return name();
     }
 }

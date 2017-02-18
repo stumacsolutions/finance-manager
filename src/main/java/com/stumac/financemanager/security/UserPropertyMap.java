@@ -4,10 +4,12 @@ import org.modelmapper.PropertyMap;
 import org.springframework.stereotype.Component;
 
 @Component
-class UserPropertyMap extends PropertyMap<User, User> {
+class UserPropertyMap extends PropertyMap<User, User>
+{
 
     @Override
-    protected void configure() {
+    protected void configure()
+    {
         skip().setId(0);
     }
 }

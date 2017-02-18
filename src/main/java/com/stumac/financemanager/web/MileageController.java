@@ -9,10 +9,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping(path = "/mileage")
-class MileageController extends AbstractUserDataController<Mileage> {
+class MileageController extends AbstractUserDataController<Mileage>
+{
 
     @Autowired
-    public MileageController(MileageService service) {
+    public MileageController(MileageService service)
+    {
         super(service, Mileage.class);
     }
 }

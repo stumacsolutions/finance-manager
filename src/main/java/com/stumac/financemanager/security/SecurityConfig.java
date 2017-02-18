@@ -22,12 +22,14 @@ import static org.springframework.security.core.authority.AuthorityUtils.commaSe
 @EnableJdbcHttpSession
 @RequiredArgsConstructor
 @EnableGlobalMethodSecurity(prePostEnabled = true)
-class SecurityConfig extends WebSecurityConfigurerAdapter {
+class SecurityConfig extends WebSecurityConfigurerAdapter
+{
 
     private final ApplicationConfig config;
 
     @Override
-    protected void configure(HttpSecurity http) throws Exception {
+    protected void configure(HttpSecurity http) throws Exception
+    {
         http.authorizeRequests()
             .antMatchers("/admin/**").hasRole("ADMIN")
             .antMatchers("/", "/login**", "/css/**", "/img/**", "/webjars/**").permitAll()
@@ -41,8 +43,10 @@ class SecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     @Bean
-    AuthoritiesExtractor authoritiesExtractor() {
-        return map -> {
+    AuthoritiesExtractor authoritiesExtractor()
+    {
+        return map ->
+        {
             String username = extract("username", map);
             return config.getSecurity().getAdmins().contains(username) ?
                 commaSeparatedStringToAuthorityList("ROLE_USER,ROLE_ADMIN,ROLE_ACTUATOR") :
@@ -51,7 +55,8 @@ class SecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     @Bean
-    PrincipalExtractor principalExtractor() {
+    PrincipalExtractor principalExtractor()
+    {
         return map -> User.builder()
             .avatarUrl(extract("avatarUrl", map))
             .lastLogin(now())
@@ -60,7 +65,8 @@ class SecurityConfig extends WebSecurityConfigurerAdapter {
             .build();
     }
 
-    private String extract(String fieldName, Map<String, Object> fieldValues) {
+    private String extract(String fieldName, Map<String, Object> fieldValues)
+    {
         ApplicationConfig.Security security = config.getSecurity();
         ApplicationConfig.Info info = security.getInfo();
         Map<String, String> keys = info.getKeys();

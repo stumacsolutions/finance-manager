@@ -10,12 +10,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import static org.springframework.http.ResponseEntity.ok;
 
 @RequiredArgsConstructor
-public abstract class AbstractUserDataRestController<D extends UserData> extends AbstractRestController {
+public abstract class AbstractUserDataRestController<D extends UserData> extends AbstractRestController
+{
 
     private final UserDataService<D> service;
 
     @GetMapping(path = "")
-    public ResponseEntity<Resources<D>> listAll() {
+    public ResponseEntity<Resources<D>> listAll()
+    {
         Resources<D> resources = new Resources<>(service.listAll());
         resources.add(getSelfLink());
         return ok(resources);

@@ -8,12 +8,14 @@ import org.springframework.stereotype.Component;
 
 @Component
 @RequiredArgsConstructor
-class DividendPropertyMap extends PropertyMap<Dividend, DividendEntity> {
+class DividendPropertyMap extends PropertyMap<Dividend, DividendEntity>
+{
 
     private final PoundsToPenceConverter poundsToPenceConverter;
 
     @Override
-    protected void configure() {
+    protected void configure()
+    {
         using(poundsToPenceConverter).map(source.getAmount(), destination.getAmount());
     }
 }

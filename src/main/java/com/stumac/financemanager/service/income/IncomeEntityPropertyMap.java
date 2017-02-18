@@ -8,12 +8,14 @@ import org.springframework.stereotype.Component;
 
 @Component
 @RequiredArgsConstructor
-class IncomeEntityPropertyMap extends PropertyMap<IncomeEntity, Income> {
+class IncomeEntityPropertyMap extends PropertyMap<IncomeEntity, Income>
+{
 
     private final PenceToPoundsConverter penceToPoundsConverter;
 
     @Override
-    protected void configure() {
+    protected void configure()
+    {
         using(penceToPoundsConverter).map(source.getAmount(), destination.getAmount());
     }
 }

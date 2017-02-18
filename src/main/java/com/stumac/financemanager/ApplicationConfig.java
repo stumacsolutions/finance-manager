@@ -12,19 +12,22 @@ import java.util.Map;
 @Getter
 @Setter
 @ConfigurationProperties
-public class ApplicationConfig {
+public class ApplicationConfig
+{
 
     public Security security;
 
     @Getter
     @Setter
-    public static class Info {
+    public static class Info
+    {
         private Map<String, String> keys = new HashMap<>();
     }
 
     @Getter
     @Setter
-    public static class Security {
+    public static class Security
+    {
         private List<String> admins = new ArrayList<>();
         private Info info;
     }

@@ -15,7 +15,8 @@ import static org.springframework.format.annotation.DateTimeFormat.ISO.DATE;
 
 @Getter
 @Setter
-public class UserProfile {
+public class UserProfile
+{
 
     private Long id;
 
