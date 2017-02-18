@@ -1,4 +1,4 @@
-package com.stumac.financemanager.vat;
+package com.stumac.financemanager.dividends;
 
 import com.stumac.financemanager.features.Features;
 import com.stumac.financemanager.user.data.AbstractUserDataRestController;
@@ -10,12 +10,12 @@ import org.togglz.spring.web.FeaturesAreActive;
 import static org.springframework.hateoas.MediaTypes.HAL_JSON_VALUE;
 
 @RestController
-@RequestMapping(path = "/api/vat", produces = HAL_JSON_VALUE)
-@FeaturesAreActive(featureClass = Features.class, features = "VAT")
-public class VatRestController extends AbstractUserDataRestController<Vat>
+@RequestMapping(path = "/api/dividends", produces = HAL_JSON_VALUE)
+@FeaturesAreActive(featureClass = Features.class, features = "DIVIDENDS")
+public class DividendRestController extends AbstractUserDataRestController<Dividend>
 {
     @Autowired
-    public VatRestController(VatService service)
+    public DividendRestController(DividendService service)
     {
         super(service);
     }
