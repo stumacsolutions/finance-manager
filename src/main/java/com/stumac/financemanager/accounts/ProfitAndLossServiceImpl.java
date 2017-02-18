@@ -1,11 +1,11 @@
 package com.stumac.financemanager.accounts;
 
-import com.stumac.financemanager.expenditure.ExpenditureCategory;
-import com.stumac.financemanager.income.IncomeSource;
 import com.stumac.financemanager.expenditure.Expenditure;
+import com.stumac.financemanager.expenditure.ExpenditureCategory;
 import com.stumac.financemanager.expenditure.ExpenditureService;
 import com.stumac.financemanager.income.Income;
 import com.stumac.financemanager.income.IncomeService;
+import com.stumac.financemanager.income.IncomeSource;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

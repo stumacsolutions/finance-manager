@@ -1,11 +1,11 @@
 package com.stumac.financemanager.home;
 
 import com.stumac.financemanager.accounts.ProfitAndLossRestController;
-import com.stumac.financemanager.web.AbstractRestController;
 import com.stumac.financemanager.expenditure.ExpenditureRestController;
 import com.stumac.financemanager.income.IncomeRestController;
 import com.stumac.financemanager.mileage.MileageRestController;
 import com.stumac.financemanager.vat.VatRestController;
+import com.stumac.financemanager.web.AbstractRestController;
 import org.springframework.hateoas.ResourceSupport;
 import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;

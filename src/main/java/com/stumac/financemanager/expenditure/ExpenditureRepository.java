@@ -1,7 +1,7 @@
 package com.stumac.financemanager.expenditure;
 
-import com.stumac.financemanager.user.data.UserDataRepository;
 import com.stumac.financemanager.security.User;
+import com.stumac.financemanager.user.data.UserDataRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
