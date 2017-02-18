@@ -40,8 +40,7 @@ public class ApiController extends AbstractRestController
 
     private void linkToDividendsController(ResourceSupport resource)
     {
-        if (Features.DIVIDENDS.isActive())
-        {
+        if (Features.DIVIDENDS.isActive()) {
             resource.add(
                 linkTo(methodOn(DividendRestController.class).listAll())
                     .withRel("dividends"));
@@ -64,8 +63,7 @@ public class ApiController extends AbstractRestController
 
     private void linkToMileageController(ResourceSupport resource)
     {
-        if (Features.MILEAGE.isActive())
-        {
+        if (Features.MILEAGE.isActive()) {
             resource.add(
                 linkTo(methodOn(MileageRestController.class).listAll())
                     .withRel("mileage"));
@@ -81,8 +79,7 @@ public class ApiController extends AbstractRestController
 
     private void linkToVatController(ResourceSupport resource)
     {
-        if (Features.VAT.isActive())
-        {
+        if (Features.VAT.isActive()) {
             resource.add(
                 linkTo(methodOn(VatRestController.class).listAll())
                     .withRel("vat"));

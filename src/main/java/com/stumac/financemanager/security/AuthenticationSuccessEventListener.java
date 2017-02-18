@@ -20,14 +20,12 @@ class AuthenticationSuccessEventListener implements ApplicationListener<Authenti
     {
         User principal = (User) event.getAuthentication().getPrincipal();
         Optional<User> maybeUser = repository.findByUsername(principal.getUsername());
-        if (maybeUser.isPresent())
-        {
+        if (maybeUser.isPresent()) {
             User user = maybeUser.get();
             mapper.map(principal, user);
             repository.save(user);
             principal.setId(user.getId());
-        } else
-        {
+        } else {
             repository.save(principal);
         }
     }

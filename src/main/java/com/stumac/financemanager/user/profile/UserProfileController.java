@@ -32,12 +32,10 @@ class UserProfileController
     @PostMapping(path = "/save")
     public String save(@Valid UserProfile userProfile, BindingResult bindingResult, Model model)
     {
-        if (bindingResult.hasErrors())
-        {
+        if (bindingResult.hasErrors()) {
             model.addAttribute("userProfile", userProfile);
             return "user/profile/edit";
-        } else
-        {
+        } else {
             service.save(userProfile);
             return "redirect:/";
         }

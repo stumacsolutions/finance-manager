@@ -69,12 +69,10 @@ public abstract class AbstractUserDataController<D extends UserData>
     @PostMapping(path = "/save")
     public String save(@Valid D userData, BindingResult bindingResult, Model model)
     {
-        if (bindingResult.hasErrors())
-        {
+        if (bindingResult.hasErrors()) {
             model.addAttribute(getType(), userData);
             return format("%s/edit", getType());
-        } else
-        {
+        } else {
             service.add(userData);
             return format("redirect:/%s", getType());
         }
@@ -94,8 +92,7 @@ public abstract class AbstractUserDataController<D extends UserData>
     private D getUserData(long id)
     {
         Optional<D> maybeUserData = service.get(id);
-        if (maybeUserData.isPresent())
-        {
+        if (maybeUserData.isPresent()) {
             return maybeUserData.get();
         }
         throw new ResourceNotFoundException();
