@@ -22,5 +22,6 @@ spring:
 togglz:
   console:
     feature-admin-authority: ROLE_ADMIN
+    path: /features-console
   web:
     register-feature-interceptor: true

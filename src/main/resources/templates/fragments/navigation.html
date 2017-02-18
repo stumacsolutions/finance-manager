@@ -53,6 +53,9 @@
           <ul class="dropdown-menu">
             <li class="dropdown-header" th:text="${#authentication.principal.username}">the_username</li>
             <li>
+              <form sec:authorize="hasRole('ROLE_ADMINg')" th:action="@{/admin/features-console}" method="get">
+                <button type="submit" class="btn btn-link">Features</button>
+              </form>
               <form th:action="@{/user/profile/edit}" method="get">
                 <button type="submit" class="btn btn-link">Profile</button>
               </form>
@@ -63,10 +66,10 @@
           </ul>
         </li>
       </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li sec:authorize="hasRole('ROLE_ADMIN')" th:class="${navigationSection == 'admin' ? 'active' : ''}">
-          <a th:href="@{/admin}">Admin</a></li>
-      </ul>
+      <!--<ul class="nav navbar-nav navbar-right">-->
+        <!--<li sec:authorize="hasRole('ROLE_ADMIN')" th:class="${navigationSection == 'admin' ? 'active' : ''}">-->
+          <!--<a th:href="@{/admin}">Admin</a></li>-->
+      <!--</ul>-->
     </div>
   </div>
 </nav>
