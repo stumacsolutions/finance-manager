@@ -10,7 +10,7 @@ import java.util.Optional;
 
 @Component
 @RequiredArgsConstructor
-public class AuthenticationSuccessEventListener implements ApplicationListener<AuthenticationSuccessEvent> {
+class AuthenticationSuccessEventListener implements ApplicationListener<AuthenticationSuccessEvent> {
 
     private final ModelMapper mapper;
     private final UserRepository repository;
