@@ -12,6 +12,7 @@ test:
   post:
     - mv build/reports/** $CIRCLE_ARTIFACTS
     - mv build/test-results/** $CIRCLE_TEST_REPORTS
+    - bash <(curl -s https://codecov.io/bash)
 
 deployment:
   master:
