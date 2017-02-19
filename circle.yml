@@ -8,7 +8,7 @@ dependencies:
 
 test:
   override:
-    - ./gradlew build mutationTest acceptanceTest
+    - ./gradlew build
   post:
     - mv build/reports/** $CIRCLE_ARTIFACTS
     - mv build/test-results/** $CIRCLE_TEST_REPORTS
